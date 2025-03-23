@@ -22,3 +22,13 @@ things we're not doing:
     - how does the probability of a paper getting accepted change based on the review process
     - not doing a cross-model comparison, only using claude
     - we're not giving guidance on how to make a good paper review model
+
+
+
+### todos/resources
+
+some code for scraping openreview: https://github.com/maxxu05/openreview_summarizereviews/blob/main/openreviews_parsing.py
+
+classification guide with claude: https://github.com/anthropics/anthropic-cookbook/tree/main/skills/classification
+
+ensure consistent json output from claude: https://github.com/anthropics/anthropic-cookbook/blob/main/misc/how_to_enable_json_mode.ipynb
