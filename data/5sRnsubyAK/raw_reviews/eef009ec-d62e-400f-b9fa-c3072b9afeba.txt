@@ -1,0 +1,23 @@
+Summary:
+The paper explores the discriminatory ability of Constant Q Cepstral Coefficients (CQCC) to classify neurodegenerative disorders based on the utterance of sustained vowels. The experimental setup includes samples from patients suffering from Parkinson-s Disease (PD) and Amyotrophic Lateral Sclerosis. The proposed pipeline includes using SMOTE to compensate for class-inbalance problems and two classical ML classification models: SVM and RF. The results show a comparison between CQCC against the well-known MFCC and classical acoustic parameters related to the fundamental frequency variability.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 1: poor
+Strengths:
+The paper presents results demonstrating that the use of CQCC enhances classification accuracy in detecting neurodegenerative disorders compared to traditional MFCC and acoustic parameters.
+
+Weaknesses:
+The main drawback of the paper is its novelty. Moreover, I consider it entirely out of the Conference's scope since it does not introduce any approach incorporating the idea of a "learning representation." The components related to Machine Learning used in the paper are traditional ML models. Regarding its novelty, the set of features analysed in the paper was introduced back in 2017 and has been tested before in several voice/speech processing applications, so its contribution would be more focused on the academic community interested in the specific area of neurodegenerative disorders classification from speech signals. However, even considering the potential contribution in the area of neurodegenerative disorders detection, the comparison proposed in the paper is pretty limited since some previous works have shown that, in the context of PD detection, Rasta-PLP coefficients have better performance than MFCC but more importantly, that sustained vowels lack articulatory information which is critical to the PD detection. Indeed, there are not many datasets available out there, but the Italian Dataset used in the experiments has pretty low recording quality, and many works have shown that classifying PD vs. Control in that dataset is not a difficult task, so it should not be used as a benchmark.
+
+Questions:
+Why do the authors consider the paper suitable for the ICLR venue?
+The revision of the previous work should be improved significantly; literature using spectral/cepstral features is abundant. Moreover, to evaluate the proposed approach's actual contribution, the paper should analyse (and compare) the proposed approach with works using end-to-end approaches based on Spectrograms or feature vectors obtained from foundational models, such as Wav2vec, Speech2Vec, or HuBERT.
+Why did the authors not include experiments using Rasta-PLP if several works have reported better performance than MFCC in the context of PD detection?
+Why did the authors not include experiments using oral diadochokinesis tasks or free speech, which are currently the maximum performance tasks for PD detection from speech signals?
+Why did the authors not include more datasets in their experiments, such as the GITA (https://www5.informatik.uni-erlangen.de/fileadmin/research/Publikationen/2014/Orozco14-NSS.pdf) or Neurovoz (https://arxiv.org/abs/2403.02371) datasets, which are provided by request. There are also datasets in German, Czech, and English used in many studies that could be used by requesting the material from the authors.
+The authors should include cross-dataset experiments, which are the most challenging evaluations, where most of the proposed approaches fail or show significant drops in their performance, so they constitute the goal standard for evaluating advances in this field of application.
+Flag For Ethics Review: No ethics review needed.
+Rating: 1: strong reject
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes
