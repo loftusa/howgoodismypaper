@@ -1,5 +1,6 @@
 from enum import Enum
-from typing import List, Optional
+from typing import List, Optional, Dict
+from datetime import datetime
 from pydantic import BaseModel, Field, HttpUrl
 
 
@@ -51,15 +52,23 @@ class ReviewSchema(BaseModel):
 
 
 class PaperMetadata(BaseModel):
-    paper_id: str
-    title: str
-    authors: List[str]
-    abstract: str
-    pdf_url: HttpUrl
     openreview_url: HttpUrl
+    pdf_url: HttpUrl
+    submission_date: datetime
+    
+    @property
+    def json_filename(self) -> str:
+        """Generate a filename for storing review data."""
+        return f"{self.paper_id}.json"
+
+    @property
+    def paper_id(self) -> str:
+        """Extract the paper ID from the openreview URL."""
+        # The format of the openreview URL is https://openreview.net/forum?id=...
+        return self.openreview_url.path.split('?id=')[-1]
 
 
 class PaperReviewData(BaseModel):
     metadata: PaperMetadata
-    human_reviews: List[ReviewSchema]
+    human_reviews: Dict[str, ReviewSchema] = Field(default_factory=dict)
     claude_review: Optional[ReviewSchema] = None 
