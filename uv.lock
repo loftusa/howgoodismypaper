@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.12"
 
 [[package]]
@@ -195,6 +196,7 @@ dependencies = [
     { name = "anthropic" },
     { name = "dotenv" },
     { name = "ipykernel" },
+    { name = "pydantic" },
 ]
 
 [package.metadata]
@@ -202,6 +204,7 @@ requires-dist = [
     { name = "anthropic", specifier = ">=0.49.0" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "pydantic", specifier = ">=2.10.6" },
 ]
 
 [[package]]
@@ -246,7 +249,7 @@ name = "ipykernel"
 version = "6.29.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "appnope", marker = "platform_system == 'Darwin'" },
+    { name = "appnope", marker = "sys_platform == 'darwin'" },
     { name = "comm" },
     { name = "debugpy" },
     { name = "ipython" },
