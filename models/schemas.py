@@ -66,7 +66,7 @@ class PaperMetadata(BaseModel):
     def paper_id(self) -> str:
         """Extract the paper ID from the openreview URL."""
         # The format of the openreview URL is https://openreview.net/forum?id=...
-        return self.openreview_url.path.split('?id=')[-1]
+        return str(self.openreview_url).split("?id=")[-1]
 
     @classmethod
     def from_json(cls, json_path: Path | str) -> "PaperMetadata":
