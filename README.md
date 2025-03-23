@@ -12,8 +12,13 @@ For each paper, we want:
 
 ## Part 2: analysis
 
+questions:
+    - how good is claude at predicting review scores?
+    - how much does claude's predictions vary across papers compared to reviewers?
+    - can claude predict one metric more less better than another?
+    - to what extent can we change review scores with prompt engineering / prompt tuning?
 
-
-TODOs
-- get a good scraper going
-    - initially just get it manually
+things we're not doing:
+    - how does the probability of a paper getting accepted change based on the review process
+    - not doing a cross-model comparison, only using claude
+    - we're not giving guidance on how to make a good paper review model
