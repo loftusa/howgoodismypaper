@@ -1,4 +1,5 @@
 from enum import Enum
+from pathlib import Path
 from typing import List, Optional, Dict
 from datetime import datetime
 from pydantic import BaseModel, Field, HttpUrl
@@ -66,6 +67,11 @@ class PaperMetadata(BaseModel):
         """Extract the paper ID from the openreview URL."""
         # The format of the openreview URL is https://openreview.net/forum?id=...
         return self.openreview_url.path.split('?id=')[-1]
+
+    @classmethod
+    def from_json(cls, json_path: Path | str) -> "PaperMetadata":
+        json_data = Path(json_path).read_text()
+        return cls.model_validate_json(json_data)
 
 
 class PaperReviewData(BaseModel):
