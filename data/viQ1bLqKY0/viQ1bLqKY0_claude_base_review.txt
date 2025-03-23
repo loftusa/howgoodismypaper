@@ -1,0 +1,19 @@
+23 October 2023, 15:30 (modified: 23 October 2023, 15:30)
+Summary: This paper introduces EXecution-Eval (EXE), a benchmark for evaluating language models' ability to execute real-world code by predicting program states. EXE includes over 30,000 tasks derived from 1,000 popular Python repositories on GitHub, covering a wide range of algorithmic complexities. The authors argue that EXE addresses limitations in existing code evaluations by providing difficulty scaling, task diversity, resistance to training data contamination, and cost-effective scalability. The paper describes the methodology for creating EXE, evaluates several state-of-the-art LLMs on it, and analyzes the results across different code complexity metrics, revealing specific computational concepts that challenge current models.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses a meaningful gap in LLM evaluation by focusing on code execution abilities rather than just code generation. The benchmark is impressively large-scale, with over 30,000 tasks derived from real-world repositories, and appears to be designed with appropriate rigor. The detailed analysis of model performance relative to various code metrics provides valuable insights into the specific challenges different code constructs pose to LLMs. The authors' approach to creating continuously updatable test cases is also valuable for maintaining the benchmark's relevance as models improve.
+
+Weaknesses: The paper lacks sufficient comparison to related benchmarks like CRUX-Eval, failing to thoroughly demonstrate how EXE offers unique insights beyond previous work. The methodology for selecting repositories and filtering functions could introduce biases that aren't fully addressed - for example, the over-representation of certain repositories and potentially biasing toward simpler, deterministic functions. The error message comparison methodology using LLMs as judges introduces a potential circularity that could bias results. Additionally, while the authors discuss potential extensions, the paper would benefit from more experimental validation of these ideas.
+
+Questions: 1. How do you ensure that the code execution tasks you've selected are representative of real-world code execution challenges rather than simply selecting for code that's easier to test?
+2. Have you analyzed performance differences between models trained on more or less code data to better understand how pretraining affects execution abilities?
+3. How might the dependency resolution and inlining approach affect the natural context and complexity that programmers encounter in real-world situations?
+4. Could you elaborate on how EXE's results compare directly with CRUX-Eval on similar types of execution tasks?
+
+Flag For Ethics Review: 
+Rating: 6
+Confidence: 4
+Code Of Conduct: yes

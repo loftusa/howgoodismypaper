@@ -1,0 +1,25 @@
+```
+25 September 2023, 14:30 (modified: 25 September 2023, 15:45)
+Summary: This paper presents a novel approach to Traffic Signal Control (TSC) using multi-agent reinforcement learning (MARL). The authors model the communication among traffic signal controllers as a sequence problem, using a transformer architecture to enable intersections within road networks to communicate with each other. The approach is designed to handle variable road network topologies, including different numbers and types of intersections. The authors demonstrate their method's effectiveness by training on both real and randomly generated road networks with various traffic demands. One key finding is that even with minimal state information, their approach achieves competitive performance compared to using more detailed traffic information.
+
+Soundness: 3
+Presentation: 2
+Contribution: 3
+Strengths: 
+The paper presents a novel approach to traffic signal control that addresses several practical challenges in the field. The architecture's ability to handle varying network topologies is particularly valuable, as real-world deployment would require adaptation to different city layouts. The automated pipeline for dataset generation is a significant contribution that could benefit future research in this area. The empirical results demonstrating that limited state information (which could be obtained from widely available sources like Google Maps) can achieve competitive performance is an important finding with practical implications for deployment. The comparative analysis against static traffic control baselines shows meaningful improvements in important metrics like CO2 emissions and waiting times.
+
+Weaknesses: 
+The paper lacks a thorough comparison with recent state-of-the-art MARL approaches for traffic signal control. While the authors mention several related works in Section 1.1, the experimental section does not include direct comparisons with these methods. This makes it difficult to assess the relative advantages of the proposed approach. The presentation of the methodology could be clearer, particularly in explaining how the transformer architecture is applied to the problem. Some figures (like Figure 1) are referenced but not well-integrated into the explanation. The authors claim that "minimal state information can achieve competitive performance" but don't clearly establish what the competitive baseline is. The multi-network experiments mentioned in Section 3.3 are incomplete, with the authors noting that "our model has yet to show convergence with these advanced settings."
+
+Questions: 
+1. Could you provide quantitative comparisons with the state-of-the-art methods mentioned in the related work section (like IDQN, IPPO, MPLight, FMA2C, etc.)?
+2. In Section 3.2, you mention that all levels of state information achieve similar performance. This is an interesting finding, but what explains this phenomenon? Is there redundancy in the information, or is the transformer architecture able to extract sufficient information even from minimal inputs?
+3. You claim the ability to handle variable road network topologies, but can you elaborate on how the model performs when transferred to completely new road networks not seen during training?
+4. For the multi-network training that has not yet converged, what challenges do you believe are preventing convergence, and what modifications might help address these issues?
+
+Flag For Ethics Review: No
+
+Rating: 6
+Confidence: 3
+Code Of Conduct: Yes
+```

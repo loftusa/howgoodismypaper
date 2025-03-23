@@ -1,0 +1,15 @@
+11 October 2023, 15:30 (modified: 11 October 2023, 15:30)
+Summary: This paper introduces MAC-CAFE, a multi-actor centralized critic architecture for feedback-driven editing of knowledge bases in retrieval-augmented generation (RAG) systems. The approach uses a reinforcement learning framework where document-specific actors make structured edits based on feedback from a centralized critic. The authors evaluate their method on five datasets spanning both incomplete and incorrect knowledge base scenarios, showing improved performance over baseline methods. MAC-CAFE achieves higher accuracy and better coherence in knowledge base edits compared to existing approaches.
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses an important problem in RAG systems: how to efficiently update external knowledge bases based on expert feedback without retraining the language model. The proposed multi-actor centralized critic architecture is novel in this context and provides a structured way to modify documents in the knowledge base. The experimental evaluation is conducted on diverse datasets, showing consistent improvements over baselines. The approach is practical, as it works with black-box access to LLMs, making it widely applicable.
+Weaknesses: The technical novelty is somewhat limited as the work combines existing techniques from multi-agent reinforcement learning and prompt optimization. The baseline comparison is limited to a single method (PROMPTAGENT-E) derived from prior work, rather than comparing against a broader range of knowledge editing approaches. The experimental results show improvements, but the magnitude of gains is modest in some datasets (e.g., 2-3% on CLARK-news). More analysis on the limitations of the approach and failure cases would strengthen the paper. The method appears computationally expensive, requiring multiple LLM calls per document edit, but there's no discussion of computational efficiency or scaling concerns.
+Questions: 1. How does the computational cost of MAC-CAFE compare to the baseline method? What is the average number of LLM calls required per document edit?
+2. What are the limitations of MAC-CAFE when dealing with very large knowledge bases with thousands of documents?
+3. How sensitive is the method to the quality of the expert feedback? Are there cases where incorrect or incomplete feedback leads to degraded performance?
+4. Could the authors provide examples of knowledge base edits where MAC-CAFE fails to improve or degrades performance?
+Flag For Ethics Review: No
+Rating: 6
+Confidence: 4
+Code Of Conduct: Yes
