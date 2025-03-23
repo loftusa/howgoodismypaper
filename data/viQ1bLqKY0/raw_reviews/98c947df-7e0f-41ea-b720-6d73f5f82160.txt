@@ -1,0 +1,23 @@
+Summary:
+The authors present a new benchmark to evaluate LLMs' capability in executing real-world code. To collect a set of executable code from the real world, they built a pipeline to collect repos from GitHub to construct self-contained, deterministic code. They performed static analysis to inline the dependencies to make it self-contained, and then generated inputs using LLMs. The benchmark includes 30,000 tasks across 1,000 popular Python repos. They evaluated GPT-4o and GPT-4o mini and showed that these strong models still struggle with more complex tasks.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+The benchmark addresses the issue in the prior work, i.e. CruxEval, by collecting real-world Python functions, instead of synthetically generated ones from LLMs.
+The benchmark includes diverse tasks and spans across 1000 repos
+The pipeline is mostly automatic and can be updated to include newer repos to address the benchmark contamination problem
+They provide analysis regarding the relationship between performance and line count, number of function calls, execution time, etc. to better understand what affects performance
+Weaknesses:
+The main issue with the work is that it lacks certain insights as to how this benchmark would shed light. For example, many people use CruxEval because it correlates well with model's code generation/understanding ability. Does evaluating on this benchmark instead of CruxEval serve as a better predictor of such capability?
+The paper evaluates on two models: GPT4o and GPT4o-mini. It would be better to also evaluate some open source models to compare against the closed API-only ones, especially the StarCoder model which explicitly provides training data, so one can check whether the code in the training data affects the execution prediction or not
+The input test cases are LLM generated. Since the work emphasizes real-world scenarios, it would be good to assess whether the LLM-generated test cases are of reasonable quality, and whether it gives an advantage to the LLM that generated the test cases in performing the task
+Questions:
+What is the model used to generate inputs? Does it matter if different models are used for input generation?
+The inlining to create a doable Python program, although necessary to make the task self-contained, also seems to make the code not look like real-world cases. Is there a way to address this?
+Are there any observations on what types of packages the LLM struggles with? Is there more we can learn if there is more thorough error analysis?
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

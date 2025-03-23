@@ -1,0 +1,19 @@
+Summary:
+The paper introduces UnoLoRA, a method for parameter-efficient multitask fine-tuning of large language models (LLMs) through a shared Low-Rank Adaptation (LoRA) module. UnoLoRA leverages LoRA's implicit regularization properties to facilitate multitask learning by using a single adapter shared across all tasks, instead of separate adapters for each task. This approach drastically reduces trainable parameters to 0.05% per task while maintaining competitive performance with existing multitask methods. The model is evaluated on the GLUE benchmark and demonstrates parameter efficiency and improved generalization by capturing both shared and task-specific information. The authors further refine their method with UnoLoRA⋆, which converges faster and performs better in early training stages compared to the initial UnoLoRA.
+
+Soundness: 2: fair
+Presentation: 1: poor
+Contribution: 2: fair
+Strengths:
+The authors conduct in-depth analyses of LoRA matrices in both single-task and multitask settings, highlighting distinctions in their properties (like effective rank and Frobenius norm) and the roles of A and B matrices. Visualizations like PCA further illustrate how UnoLoRA efficiently manages task-shared and task-specific information.
+The study’s experiments on the GLUE benchmark provide extensive evidence of UnoLoRA's effectiveness and competitive performance.
+Weaknesses:
+For the experiments on the GLUE benchmark, no repeated experiments with different random seeds were performed, and the experimental results are not completely convincing due to the randomness.
+Only the T5-base model was used for the experiment. The effectiveness of the method was not verified on larger or smaller models, nor on decoder-only models.
+Questions:
+What is the relationship between Figure 2 and Figure 1? Which part of Figure 1 is the Shared Hypernetwork shown in Figure 2?
+For different tasks, does UnoLoRA only change the task embedding and keep the other parts shared between different tasks?
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

@@ -1,0 +1,31 @@
+Summary:
+The paper introduces DarkBench a set of prompts designed to elicit "dark patterns" in LLM responses. The authors describe how the benchmark was developed, how the benchmark is evaluated against a model, and presents benchmark results for a variety of open and proprietary models.
+
+Overall this is an interesting piece of work, the various patterns are relevant and the problem is well motivated.
+
+I would like to see more formality w.r.t your description of the data generation and evaluation processes i.e.
+
+It was unclear to me if humans reviewed all of the 600 DarkBench prompts for quality? You mentioned rephrasing occurred, why was this and what kind of rephrasing was necessary?
+When applying the benchmark to an LLM, what parameters were used? Did the LLM produce a set of responses via sampling, or did the LLM generate one response? Did the annotator models correlate with one another? How was the final yes/no answer generated? Was positional bias accounted for?
+The results of the human reviews on the annotator model outcomes?
+I would appreciate a discussion around system prompts. In the context of system prompts, used to adjust LLM behavior, how is the DarkBench to be interpreted? I could see it being a tool.
+
+Nice idea, good selection of patterns. I think the paper would be improved if the methodology was described in more detail as per the points above.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 3: good
+Strengths:
+Nice idea The selection of patterns is relevant Valuable asset (DarkBench dataset)
+
+Weaknesses:
+The description of the methodology is a little vague. The paper would be stronger if the methodology was more detailed.
+
+Questions:
+It was unclear to me if humans reviewed all of the 600 DarkBench prompts for quality? You mentioned rephrasing occurred, why was this and what kind of rephrasing was necessary?
+When applying the benchmark to an LLM, what parameters were used? Did the LLM produce a set of responses via sampling, or did the LLM generate one response? Did the annotator models correlate with one another? How was the final yes/no answer generated with the annotator models? Was positional bias accounted for?
+The results of the human reviews on the annotator model outcomes?
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

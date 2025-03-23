@@ -1,0 +1,33 @@
+Summary:
+The authors purport to develop a novel framework for modeling physical systems using deep learning architectures in this work. The authors claim that models that first learn the "physics" of a given simple system will generalize better to more complex system variants. The authors utilize metallic alloy strength and brain morphological development as two systems of study, providing simple examples of how learning lower-fidelity models can aid in modeling more complex systems.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 1: poor
+Strengths:
+Transfer learning from low to high fidelity systems is an interesting sub-domain within transfer learning at large. I thank the authors for highlighting this problem in their work, even if it is a domain which has already been significantly explored elsewhere.
+
+I do think the core intuition at work in this paper is interesting - the use of lower-fidelity models for developing physics is quite common in the engineering sciences and the sciences at large; however, I think this core insight is marred by a lack of detail or acknowledgement of other related works which approach these problems in similar ways.
+
+Weaknesses:
+I am chiefly concerned with the significance of this contribution to the literature on transfer learning and the deep learning community at large. Many approaches to transfer learning using lower-fidelity systems or simulations exist already in the literature, and it is well-understood that such approaches can provide benefits over training directly on the more complex system. It is not clear to me how the approach in this work differs from these methodologies significantly other than in applications. See [1], [2], [3], [4] for some examples which utilize a very similar underlying approach to that in this work. I would like to challenge the authors to differentiate their work more from this existing literature and consider a resubmission. If anything, the authors should consider these other works as baseline approaches for the sake of comparison.
+
+Additionally, this paper suffers from a lack of detail regarding the proposed framework. The most obvious omission is any rigorous definition of what the "learning the physics" means within this work. In previous literature, "learning the physics" more frequently means learning a set of differential equations which describe the system, rather than learning a black-box model with parameters which can predict system changes, but which doesn't provide any direct physical interpretation. Based on the discussion in section 2, the authors seem to be utilizing the latter kind of approach. It is not at all clear to me how learning a simple convolutional neural network provides any manner of learning of the physics of a system. The authors either need to clarify this connection, or clarify that they are doing something other than learning the physics of the system. I am willing to reconsider this point given a very compelling argument from the authors; however, I think even if an argument is provided here, a more significant revision would be needed to further clarify the details omitted in this work.
+
+[1] De, Subhayan, et al. "On transfer learning of neural networks using bi-fidelity data for uncertainty propagation." International Journal for Uncertainty Quantification 10.6 (2020).
+
+[2] Chakraborty, Souvik. "Transfer learning based multi-fidelity physics informed deep neural network." Journal of Computational Physics 426 (2021): 109942.
+
+[3] Liu, Zeyu, Meng Jiang, and Tengfei Luo. "Leveraging low-fidelity data to improve machine learning of sparse high-fidelity thermal conductivity data via transfer learning." Materials Today Physics 28 (2022): 100868.
+
+[4] Song, Dong H., and Daniel M. Tartakovsky. "Transfer learning on multifidelity data." Journal of Machine Learning for Modeling and Computing 3.1 (2022).
+
+Questions:
+See above:
+
+how does this framework differ from other existing work in the literature regarding transfer learning from low to high fidelity systems?
+how exactly does learning a black-box model which can predict the system count as learning the "physics" of the system?
+Flag For Ethics Review: No ethics review needed.
+Rating: 1: strong reject
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

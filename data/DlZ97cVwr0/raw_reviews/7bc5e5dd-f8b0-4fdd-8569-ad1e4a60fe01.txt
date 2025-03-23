@@ -1,0 +1,38 @@
+Summary:
+This paper identifies the challenges in evaluating the recall of generative models and introduces a recall benchmark in the domain of molecular generation. It also proposes sampling strategies and loss formulations to enhance recall.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+This paper is well-written and easy to understand, addressing a problem that has not been extensively explored before. Additionally, the paper addresses crucial research directions, such as measuring recall without generation and methods to enhance recall, presenting intriguing experimental results.
+
+Weaknesses:
+Scalability of Research
+
+The study in this paper is limited to a specific domain, namely molecular generation, and there needs to be a discussion on how this research can be extended to other domains. For example, a crucial aspect of measuring recall, as highlighted in the paper, is identifying the equivalence class of the model’s generated results. As mentioned in lines 60-62, there is a technique for identifying equivalence classes for SELFIES strings. How could this issue be addressed in other domains you mentioned in the introduction, such as “vulnerable code generation”?
+
+Completeness in Method
+
+In my opinion, the sections proposing the sampling strategy and loss to improve the model’s recall are crucial for establishing the novelty of your paper. However, these aspects are not fully developed and lack sufficient explanation. For instance, in the case of the recall-oriented loss function, the approach of changing the aggregation to min or max seems quite extreme to me, with significant potential for refinement. Additionally, the proposed method only showed effectiveness for a very small and underperforming model with 800K parameters. Therefore, improvements in this area are essential. Additionally, the motivation for using beam search in recall-oriented generation and the intuition behind why increasing the beam size leads to improved recall need to be more thoroughly explained.
+
+Evaluation
+
+Most experiments in this paper are validated using a single model and dataset, making it difficult to consider the proposed benchmark method and the approaches to improve recall as thoroughly validated. I believe there should be verification to ensure that the trends in the experimental results hold consistently across at least several models. Additionally, there are confusing aspects regarding the details of the experiments, which should be described and justified more comprehensively (see the questions section for more details).
+
+Questions:
+In my understanding, the process you described in lines 236-237 is aimed at generating the set of every correct generation, 
+ , for evaluation purposes. Is this correct? Additionally, how can you ensure that the generated results accurately represent every correct generation?
+
+As shown in Table 2, recall shows a correlation with the complexity of molecules, whereas precision does not. Is there a specific reason for this? I’m curious about which aspects of the recall metric lead to this outcome.
+
+What is the input to the model when performing generation with an LLM for recall/precision evaluation?
+
+What exactly is the purpose of the validation set mentioned in line 220, and is there a specific reason for using only 10,000 instances?
+
+How does the cost (time complexity, memory, etc.) change with the beam size in 4.3?
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

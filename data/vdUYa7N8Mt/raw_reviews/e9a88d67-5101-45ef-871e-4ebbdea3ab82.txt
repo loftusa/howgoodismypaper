@@ -1,0 +1,29 @@
+Summary:
+This paper propose a new rate-distortion-perception function and proves its achievabiliy and converse, in both zero-shot and asymptotical setting. The proposed RDP function replace the P from divergence to a realism measure defined by authors. The propose RDP function is achievable without common randomness.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+It is great to have a RDP which is achievable without randomness. Afterall, the human eye distinguishs images in a per-image setting without randomness. The proposed RDP is better aligned to human perception in this sense. I have not went through the details of proofs due to the complex notation. However, I am in general glad to see a new RDP function with achievability & converse, zero-shot & asymptotic.
+
+Weaknesses:
+The reason why I am not willing to give this paper a higher rating is that the authors have not shown how the proposed RDP can guide perceptual compression / super-resolution, not even a toy example.
+
+The RDP function in [Blau & Michaeli 2019] has many disadvantages, which this paper does not have:
+
+[Blau & Michaeli 2019] does not prove the converse.
+[Blau & Michaeli 2019] does not distinguish zero-shot and asymptotic function. Those issues have not been fixed until [A coding theorem for the rate-distortion-perception function].
+However, those weakness does not stop [Blau & Michaeli 2019] being popular. This is because [Blau & Michaeli 2019] has clear application in perceptual compression / super-resolution. It explains why previous work using GAN for perceptual compression; It aligns very well with the practically used "real vs. fake" test; It even guides later works in diffusion based image compression.
+
+ICLR is a machine learning venue, not a pure information theory venue such as ISIT / TIT. It is better to have numerical examples (even toy size) and suggestions for later application works, so that the later works in ICLR can benefits from this paper more.
+
+(minor) It is better to move the converse to the main paper, as this year we have 10 page budget. It is strange to have a 8 page paper and 20 page appendix. At least for me, the converse is as important as achievability.
+
+Questions:
+See weakness.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

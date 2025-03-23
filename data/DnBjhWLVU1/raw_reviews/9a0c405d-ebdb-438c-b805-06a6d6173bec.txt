@@ -1,0 +1,41 @@
+Summary:
+The paper focuses on the solution to recovering the plasticity of DNNs via weight regularization. The paper proposes a simple yet effective weight regularization method that prevents unbounded weight growth. The authors also provided the technique's theoretical and empirical insights, which prove the generalization performance in different learning.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+This work progressively establishes and justifies its framework, making this paper easy to follow.
+The results are promising, however, I have some concerns regarding the results as discussed below
+Weaknesses:
+One main drawback of the paper is the limited application of the paper. The authors made many assumptions (e.g., the network is affine, homogeneous with ReLU), which impedes the contributions and the applicability of the paper in real-world scenarios.
+Some crucial statements are made without proper references. Furthermore, these statements are conflicted with the statements in various peer-reviewed and significant publications.
+The paper came up with many theorems and definitions without explaining the usages and necessities of these statements.
+Ablation tests according to Theorem 1 needed to be conducted to verify the paper's significance.
+All in all, the aforementioned issue impedes the contribution and significance of the paper method. The authors please consider carefully about these issues. If the issues are addressed, the score can be modified.
+The experimental evaluations are not sufficient, they need to provide more experiments on large-scale datasets (ImageNet1K, COCO, etc) and across different model architectures (VisionTransformers, etc).
+The hyper-parameter 
+ is proposed but there are no experiments that consider the effect of 
+ on the boundedness of the weight before and after scaling.
+There should be a theoretical discussion about how to tighten the boundedness compared to other methods. For example, in Theorem 2, the authors show that 
+, which is trivial thus not proving that the proposed method is better than others.
+Questions:
+Can you discuss more the statement in L086: "weight growth is inevitable in deep learning"? We agree that a large value of weight norm impedes the model generalization. However, this phenomenon is usually at the initial phase of DL. It can be proved via empirical experiments [R1], or theoretical [R2, Theorem 1].
+Moreover, in the cited paper, the authors mentioned the phenomenon when the weight norm is large. However, the authors did not mention that the weight norm is high due to the progress of the training model (which is related to the plasticity effects of the pre-trained model, which is already trained). Please note that this statement is crucial to assess the paper's contribution and significance.
+[R1] Yang You, Jing Li, Sashank Reddi, Jonathan Hseu, Sanjiv Kumar, Srinadh Bhojanapalli, Xiaodan Song, James Demmel, Kurt Keutzer, Cho-Jui Hsieh, Large Batch Optimization for Deep Learning: Training BERT in 76 minutes, ICLR 2020.
+
+[R2] Jianyu Wang, Qinghua Liu, Hao Liang, Gauri Joshi, H. Vincent Poor, Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization, NIPS 2020.
+
+What is the necessity of the notations of the network layer defined as in L130-136?
+In 156, 
+ is the proportion of the output of the model, is it applicable to models with various types of activation functions or only applicable to linear activation functions?
+What is the meaning of Theorem 1? Why do we need to find many networks that are proportional with 
+?
+In L216 - L218, can the authors discuss more the statement that the "initial weight norm is small in most initialization"? To be frank, this statement needed to be considered carefully (e.g., making ablation tests or empirical evaluations).
+In L245, why 
+ is set to 1? Is it different in performance if we set 
+ to different values? An ablation test according to the difference initial C should be made to verify the paper's method.
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

@@ -1,0 +1,27 @@
+Summary:
+This paper proposes a Feature-Aware Federated Learning (FAFL) framework, which incorporates feature importance into FL process. The framework utilizes integrated gradients to compute feature relevance and adapts dynamically to changing data distributions, aiming to handle the heterogeneity of client data.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 1: poor
+Strengths:
+The modeling of the 5G scenario in the paper is commendable, and the proposed method is an interesting attempt to handle heterogeneous features.
+
+Weaknesses:
+The background research in this paper is insufficient. There is already a substantial body of work focused on heterogeneous data and features in FL, but the authors only mention the classic approaches, FedAvg and FedProx.
+
+The experiments are lacking. The authors only use the two aforementioned methods as baselines and conduct a limited number of experiments. A significant portion of the paper is devoted to details about model architecture.
+
+The paper lacks motivation. Why do we need a feature weighting method instead of letting the model learn it? It would be better if the necessity of this method in certain scenarios could be clarified.
+
+In the introduction, it’s stated: "this (FedAvg’s) assumption overlooks the heterogeneity inherent in client data," which suggests that the 5G scenario involves non-i.i.d data. However, the authors' method directly averages the 'feature importance vectors' from different clients (Eq.5). The rationale behind this step doesn’t seem intuitive.
+
+Eq.10 seems incorrect. Since \theta_k is a vector representing the model parameters, this implies that w_k should also be a vector. Meanwhile, \Sigma a_i doesn’t appear to make sense. The unclear nature of this formula makes it difficult to fully understand the proposed method.
+
+Questions:
+See weaknesses.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

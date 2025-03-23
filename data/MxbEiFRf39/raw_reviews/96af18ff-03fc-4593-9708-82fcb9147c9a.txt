@@ -1,0 +1,22 @@
+Summary:
+The paper introduces two systems NNsight and NDIF that collectively aim to reduce the developer and hardware costs of analyzing and modifying the inference behavior of open-source models. NNsight is an instrumentation framework for PyTorch models, while NDIF is an inference service that enables deferred execution of NNsight instrumentations on a remote shared model deployment. The paper provides evaluation comparing to inference baselines of shared (Petal) and non-shared HPC deployments.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+This paper is focusing on an important problem since tools that enable introspection of model internals are extremely valuable for ML research and applications.
+Opting for Pytorch-native tools is a great design choice as that significantly reduces development and integration burden for practitioners.
+Enabling resource sharing via NDIF service is very useful to democratizing access to SOTA models.
+Weaknesses:
+The paper seems to overclaim, particularly in the title and abstract, that the work applies to foundation models in general, when in reality it only applies to open-source models, since model internals knowledge is required to create interventions. The authors should more carefully scope the claims.
+The evaluation does not study co-tenancy scenarios where the NDIF is servicing multiple NNsight requests. This is a significant oversight considering that the resource sharing benefits of NDIF is a major contribution of the work. The authors should include results showing not just the performance implications of servicing the multiple NNsight requests but also validating the correctness of the co-tenancy features.
+Questions:
+Do users submit a pair of NNsight request and an input prompt? Or how is the input prompt for exercising an intervention generated?
+When multiple NNsight requests are submitted, are all the interventions applied to a single model instance for inference, or is a separate model instance created for each request?
+If a single model instance is instrumented with multiple NNsight requests, how does NDIF ensure that a request that modifies model parameters does not affect other requests?
+How is KV-cache managed for multiple NNsight requests?
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

@@ -1,0 +1,36 @@
+Summary:
+The authors tackle the challenge of efficient machine unlearning in large Transformer models, essential for meeting privacy regulations. Existing methods, often structure-agnostic, struggle to accurately target influence-critical parameters in Transformers. To address this, the authors introduce SPE-Unlearn, a structure-aware approach that uses learnable masks to identify key parameters within Transformer heads and filters. Optimized via a greedy search, SPE-Unlearn enhances unlearning by balancing efficiency and effectiveness. Extensive experiments show that SPE-Unlearn significantly improves unlearning performance across various Transformer models and datasets.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+The paper is clearly written, well-formatted, and well-organized.
+
+The mathematical derivations are rigorous.
+
+Weaknesses:
+The paper mentions that SPE-Unlearn can enhance the effectiveness of various methods; however, the authors only integrate SPE-Unlearn with SO and do not test it with other methods. In Table 2, SPE-SO does not show a significant improvement over SO, while requiring more time.
+
+Common LLM unlearning tasks, such as TOFU, MUSE, and WMDP, are missing.
+
+Several standard baselines, like NPO and "I don't know," are not included, which weakens the argument.
+
+For robustness, the authors employ memory-free and memory-aided unlearning but do not explore other approaches, such as jailbreak prompts.
+
+Questions:
+Could the authors explore additional LLM unlearning benchmarks, such as TOFU, MUSE, and WMDP?
+
+Could the authors evaluate more unlearning methods, like NPO and "I don't know"?
+
+For robustness evaluation, would it be possible to include tests like relearning attacks or jailbreak prompts?
+
+Additionally, could the authors consider using gradient norm alone to identify saliency? This might offer a more streamlined approach.
+
+Flag For Ethics Review: No ethics review needed.
+Details Of Ethics Concerns:
+None
+
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

@@ -1,0 +1,23 @@
+Summary:
+This paper proposes a structure-aware parameter efficient machine unlearning approach for transformer models.
+
+Soundness: 3: good
+Presentation: 4: excellent
+Contribution: 3: good
+Strengths:
+The research problem is interesting and the approach is novel.
+
+Weaknesses:
+Some experiments are insufficient, and the experimental setup should be more comprehensive.
+
+For example, in page 7 the author notes that if the number of unlearning requests exceeds a certain threshold, the model must be retrained from scratch to regain its performance. What exactly is this threshold?
+
+Additionally, in Table 3, is there a specific reason for selecting 90% sparsity instead of alternatives like 85% or 95%? Based on Figures 2 and 3, is this value specific to the model?
+
+Questions:
+I am interested in the comparison results with other unlearning approaches presented in Table 1. Could you either provide the results of applying the memory-aided unlearning approach to the experiments in Table 1, or explain why this comparison was not included?
+In the experiments on successive unlearning scenarios on page 9, the experiments shows the number of requests affect the results. How does the Volume of data affect the performance?
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

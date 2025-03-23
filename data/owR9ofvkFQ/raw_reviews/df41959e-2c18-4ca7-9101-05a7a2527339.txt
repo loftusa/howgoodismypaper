@@ -1,0 +1,27 @@
+Summary:
+The paper aims to investigate and understand LLMs’ strong problem-solving abilities. The paper introduces a novel dataset “MathOdyssey”. The dataset includes a diverse set of mathematical programs at three levels: High school, university and olympiad level. Each category has a wide range of different problem areas such as Algebra, Number Theory, calculus etc. The dataset contains a total of 387 data points and has novel problems created by mathematics professionals, including high school educators, university professors and researchers. Each problem is accompanied by its final answer and its reasoning chain. They also did a comprehensive evaluation of the dataset and tested it on both closed and open models. They used GPT-4 to assist in evaluating the model accuracy, as the dataset contained a wide range of answer types (open answer, MCQ, and true-false). The evaluation shows that the closed source model particularly GPT-4, o1 and GPT-4 Turbo shows strong performance in high school and university-level math. For open-source models such as Llama-3, the results show that the selected open-source models only surpass the performance of GPT3.5 but are also approaching the capabilities of the earlier version of GPT-4.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+Release of a novel dataset that will help the community as this dataset has not been used in the training of existing models.
+Comprehensive benching of different models, highlighting their efficiency in solving different categories/areas of problems.
+Effective use of GPT-4 for evaluating the accuracy of models. The author employs a prompt-based method and provides scores of various categories.
+Weaknesses:
+Even though the dataset provides various categories of questions in different areas, the count of individual categories is very small. For example Number Theory – Olympiad-level accounts for only 4 problems, Differential Equations – University-level for 14 problems etc. So do the authors have any plan to extend the count of problems in these areas?
+Even though the dataset does not use any existing problems, a sanity check for data contamination should be done. Experiments from the paper [1] should be added to ensure no data contamination.
+Evaluating the dataset using models fine-tuned specifically for solving math problems, such as MathCoder [2] helps show how models trained specifically to solve math problems perform on MathOdyssey.
+Reference:
+
+[1] : Golchin, Shahriar, and Mihai Surdeanu. "Time travel in llms: Tracing data contamination in large language models." arXiv preprint arXiv:2308.08493 (2023).
+
+[2] : Wang, Ke, et al. "Mathcoder: Seamless code integration in llms for enhanced mathematical reasoning." arXiv preprint arXiv:2310.03731 (2023).
+
+Questions:
+Address the weakness of the paper
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes

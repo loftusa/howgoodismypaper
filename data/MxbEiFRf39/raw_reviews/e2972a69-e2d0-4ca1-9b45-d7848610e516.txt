@@ -1,0 +1,21 @@
+Summary:
+This paper introduces NNsight and NDIF, two open systems that provide efficient, transparent access to the internals of large neural networks for research purposes. NNsight extends PyTorch to offer deferred remote execution of intervention graphs, while NDIF serves as a scalable inference service that executes these intervention requests, enabling resource sharing among users. The work addresses challenges like limited access to state-of-the-art models and the significant resource demands of large-scale AI research by sharing resources.
+
+Soundness: 2: fair
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+The intervention graph extends the model computational graph and decouples experimental design from model runtime, reducing engineering complexity.
+NDIF effectively shares GPU resources among researchers (co-tenancy), reducing cost and enabling large-scale experiments
+This is a novel idea with great potential benefit to the research community.
+Weaknesses:
+The evaluation section is limited to the end-to-end performance with little detail on the system optimizations. Specifically, more information is needed to assess the performance and scalability of this system using an increasing number of users.
+While NDIF addresses large-scale experiments on open models, it does not cover closed, proprietary models hosted proprietarily.
+Lack of discussion with relevant co-serving systems like S-LoRA (Sheng et al, MLSys 2024) and dLoRA (Wu et al, OSDI 2024).
+Questions:
+Could you please share more evaluation results on the performance and scalability of the proposed systems?
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

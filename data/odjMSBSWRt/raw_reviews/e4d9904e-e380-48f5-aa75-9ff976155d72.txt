@@ -1,0 +1,41 @@
+Summary:
+The authors develop DarkBench by manually conceptualizing six tendencies of LLMs that seem to align with the chatbot subscription-based business model (e.g., ChatGPT, Claude.ai), prompting an LLM with precise verbal descriptions of those tendencies to create adversarial prompts that would evoke dark patterns, and manually reviewing and modifying the LLM-generated prompts. Evaluation was done with LLMs prompted with human examples with samples of that LLM evaluation also done by humans for comparison. Results show that Claude performs best on this benchmark ("dark patterns" in 30-36% of responses, if I understand correctly), followed by the other models in a band of 48-61%. Some patterns (e.g., user retention) are much more frequent than others (e.g., sycophancy) in current LLMs.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 3: good
+Strengths:
+S1. I'm excited about this project's direction in evaluating LLM behavior based on design patterns found to be important in other interfaces (dark patterns, but also nudges, antipatterns, and so on). This is difficult, and I am sympathetic to work addressing it even if that work has many limitations.
+S2. I appreciate that some human review and validation was done for the LLM-generated benchmark and for the LLM-generated evaluations, and I think these general directions for datasets and benchmarks are promising in their scalability.
+S3. The figures are relatively clear and concise.
+Weaknesses:
+My primary concerns each refer to the benchmark development and evaluation seeming largely superficial, better suited to preliminary and exploratory formats, such as workshops or seminars, than a main conference publication. To be upfront and help the authors manage their time, I don't think W1 can realistically be addressed during review, and addressing only W2 and W3 would be insufficient for me to raise my score to acceptance.
+
+W1. Theoretical engagement.
+
+I'm skeptical that these six tendencies qualify as "dark patterns." Dark patterns are a specific idea regarding intentional design of user flow to trick the user into situations harmful to them and beneficial to the designer's institution (https://90percentofeverything.com/2010/07/08/dark-patterns-dirty-tricks-designers-use-to-make-people-do-stuff/index.html). It seems the authors are familiar with canonical examples, such as making it difficult to unsubscribe from a service, but I don't think the authors have successfully argued for any of their six tendencies being constitutive of, or even highly correlated with, this specific idea.
+
+I would put the misalignments into three categories: (i) not being specific to dark patterns but just harmful generation more broadly ("harmful generation" and "sycophancy" are the main culprits), (ii) not necessarily being harmful, such as the model being "friendly" or "anthropomorphic," which can be in fact some of the main benefits of LLMs, such as for mental health (https://dl.acm.org/doi/full/10.1145/3485874), and (iii) being incidental, such as "brand bias" merely from preference tuning and system prompts that center the brand. I would not say Google has a dark pattern if the search engine highly ranks Google content.
+
+I realize that it is impossible to have six metrics that uncontroversially fit into a subjective idea such as dark patterns, and it is nonetheless urgent that we build evaluations like this, but the current state of the paper is just too far off the mark.
+
+W2. LLM generation and validation.
+
+My concerns here may be due to the cursory explanation provided by the authors, but I'm missing a lot of necessary details about generation process and test validation. I would want to see, for example, the extent of mode collapse in the generations, comparisons across generations from different models, and ideally a more rigorous structure with subcategories within the six categories (a priori or through clustering). I think LLM-generated evaluations are promising, but as with any paradigm shift in scientific methodology (e.g., agent-based models, psychologists shifting from studying undergraduate students to online participants), the burden of validation will be high before it is more thoroughly vetted. It seems the authors are familiar with the explosion of literature on such methods, so there are many examples to draw from.
+
+W3. LLM evaluations.
+
+This is largely analogous to W2. I don't expect the authors to validate that LLM-as-a-judge aligns perfectly with human judgment, but only brief description such as "poor inter-rater agreement" is not sufficient to me that the LLM judges are performing well enough to trust this benchmark. It is also unclear to me how the different model judges (e.g., Claude versus Llama) were compared and aggregated, which is particularly concerning in a paper that (a) is focused on inevitably subjective distinctions between qualitative model output and (b) has a main empirical finding (or at least secondary) of differences between model brands/families. For example, it is well-known that Claude is heavily tuned to be "friendly" in various ways, such as modifying its behavior when nudged at all by the user. Some people like this. Some prefer ChatGPT as straightforward with less of that noise. But my point is that the benchmark may be merely picking up on tendencies like that, which would not only lack novelty as a finding but also be of little relevance to dark patterns.
+
+Minor concerns
+
+The term "dark pattern" was not coined in the creation of darkpatterns.org but a talk Harry Brignull gave at UX Brighton in 2010, or technically shortly before that in this blog post (https://90percentofeverything.com/2010/07/08/dark-patterns-dirty-tricks-designers-use-to-make-people-do-stuff/index.html). It continues to be a focus of design research, which would be good to engage with in addition to popular media references to the concept.
+The presentation of the paper seems rushed, including numerous typos and some structural choices that may need correction or at least clarification (e.g., the ordering of models in Figure 4, which does not seem to be "by least to highest frequency of dark patterns" as stated).
+Where is the stated "Appendix 5"? Presumably this is related to the "Annotations on the dataset" section, but perhaps the authors meant to include more information in the appendix that would address some of my other concerns.
+Questions:
+See Weaknesses.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 8: accept, good paper
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

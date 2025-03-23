@@ -1,0 +1,25 @@
+Summary:
+This paper proposes a multi-agent RL method to enable communication between multiple intersections using sequence modeling. It also introduces a pipeline for dataset and road network generation. It further tries to handle issues with minimal state information.
+
+Soundness: 2: fair
+Presentation: 1: poor
+Contribution: 2: fair
+Strengths:
+The originality is good. It aims to solve some real-world problems in current traffic signal control research, such as varying network and intersection structures, multi-intersection coordination, and the lack of expensive sensor-captured data.
+
+Weaknesses:
+The abstract doesn’t provide enough information about the problem, method, and contributions.
+Figures 5 and 6 both contain irrelevant parts in the screenshots. Moreover, the authors should use high-definition figures instead of screenshots.
+It’s not clear what the “difference in vehicle waiting time” means in the reward setting in Line 159.
+This paper states that one major contribution is the dataset, traffic flow and road network generation. However, how you generate them is not clearly explained.
+There are not any latest baseline methods for comparison.
+No uncertainty evaluation for any experimental results. Multiple runs are necessary for model evaluation.
+The experiments lack comprehensiveness, and the analysis does not provide sufficiently convincing insights.
+No code or implementation details are provided.
+Questions:
+In line 247, the Transformer model used in this paper assumes access to global information. As far as I know, information sharing is highly limited. Is global sharing reasonable in traffic signal control problems?
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

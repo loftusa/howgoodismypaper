@@ -1,0 +1,25 @@
+Summary:
+This paper tackles the challenge of achieving exact federated unlearning while maintaining good post-unlearning performance. Existing methods, such as retraining the federated model from scratch, fail to provide satisfactory initial performance after unlearning. Therefore, the authors propose Bi-Models Training (BMT) and Multi-Models Training (MMT) to address this issue. BMT preserves isolated copies of local models and reuses clients' existing knowledge during unlearning. MMT trains multiple sub-federated learning models on disjoint subsets of clients and aggregates the best sub-models upon unlearning. Both methods ensure exact federated unlearning while achieving improved performance compared to retraining from scratch.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 1: poor
+Strengths:
+S1. The topic of how to simultaneously preserve the model performance while exactly removing one client's influence is an important problem in practice.
+
+S2. Both theoretical and empirical results were provided to verify the effectiveness of the proposed method.
+
+Weaknesses:
+W1. The technical contributions of the proposed methods are limited. For BMT, it only re-initializes the global model with local models that are only trained once by remaining clients, which is only equal to saving one round's communication cost compared to the random initialization case. For MMT, it maintains multiple series of model training (e.g., global model training, sub-FL training, and local training) to increase the training process's robustness to clients' exclusion. The local computation and communication cost can be larger than restart training the model from the randomly initialized one.
+
+W2. Some claims are confusing. For example, the reasons for the new model's low accuracy need further clarification in line 161 "the new model may have very low accuracy compared to the aggregated model before unlearning due to restarting the FL process with random initialization ", since restarting the FL process with remaining clients should not cause performance drop given unlimited the communication and computation resources.
+
+W3. The definition of double influence and its impact are also unclear. Please clarify this term in the response.
+
+Questions:
+See the weakness.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

@@ -1,0 +1,25 @@
+Summary:
+This paper focuses on Test-Time Adaptation (TTA) for edge devices with limited computational capacity. The authors propose SNAP-TTA, a sparse TTA framework with two key components, Class and Domain Representative Memory (CnDRM) and Inference-only Batch-aware Memory Normalization (IoBMN), aiming to reduce model adaptation frequency and data usage while maintaining accuracy.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+The proposed SNAP-TTA framework addresses the latency-accuracy trade-off issue in existing TTA methods for edge devices in some cases. It reduces latency while achieving competitive accuracy, as demonstrated by extensive experiments on multiple benchmarks and with integration of several existing TTA algorithms.
+
+Weaknesses:
+In the background section, the mention of applications like real-time health monitoring for IoT edge devices may not be entirely appropriate as these devices often have extremely limited memory. With limited memory, these devices are difficult and even impossible for backward-propagation and gradient decent. In this sense, memory should perhaps be prioritized over latency as the primary concern.
+It is unclear whether the proposed method reduces the delay per batch or the average delay (adaptation occurs once every several batches as shown in Figure 1). If it is the latter, its effectiveness for latency-sensitive applications may be limited as the inference delay could increase significantly every several batches.
+The method reduces the cost of backpropagation by filtering samples to decrease the inference latency. However, EATA also uses a similar strategy, but in Figure 2, the delay of EATA is the same as that of Tent, and the delay of SAR is inconsistent with the results reported in its original paper.
+The paper could compare the inference latency in Tables 1, 2, and 3.
+In Table 6 for ImageNet-C, only the Tent method is compared, ignoring other methods, which could provide more comprehensive and convincing results.
+In the experiments, it is not clear how the number of participating samples is controlled to meet the adaptation rate. Is it through adjusting the 
+ hyperparameter? Also, it is not described how other compared methods meet the adaptation rate.
+The description of lines 10-15 of the algorithm in the paper is relatively brief, considering its importance for the proposed method. More detailed explanation in the paper would assist readers in understanding.
+Questions:
+NA
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes

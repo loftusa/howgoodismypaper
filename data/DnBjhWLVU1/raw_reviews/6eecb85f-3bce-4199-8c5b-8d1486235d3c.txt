@@ -1,0 +1,31 @@
+Summary:
+The authors introduce Soft Weight Rescaling (SWR), a novel weight regularization method that prevents unbounded weight growth to preserve information and maintain network plasticity. The theoretical analysis shows that SWR bounds weight magnitudes and balances them across layers without degrading model performance. Empirical evaluations, particularly with VGG-16, show that SWR improves generalization performance compared to other regularization methods.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+The paper is overall clearly written and the method is adequately described.
+The proposed method SWR is computationally more efficient than previously proposed methods.
+The experiment results and analysis provided in the paper are insightful.
+Weaknesses:
+The experimental results on smaller models are quite weak. For example, in warm-start and continual learning experiments, L2 (or S&P) seems to be better in most experiments (including the ones in the appendix). Even in Table 1, except for VGG, I wouldn't say the improvements are significantly higher since there's quite a bit of overlap with L2 in terms of standard deviations in MLP, and CNN cases. SWR only performs well on VGG which is not a very popular architecture even for vision-based experiments in this domain compared to ResNet. It would be interesting to see the comparison between SWR and baselines on bigger models. The assumptions of affine, conv layers in Theorem 1 are also strong and limit the applicability of SWR.
+I think the main novelty of the idea is limited and comes primarily from "scaling the bias vectors according to a certain rule". From Eq on line 220, one may assume that 
+ will attain a higher magnitude than 
+. As a result, 
+, which implies that SWR would behave like a layer-wise version of S&P with weight_scale = 
+ and no initial weights.
+Missing baselines: Lyle et al. 2024 recently also showed that the L2 + Layer norm generally outperforms the majority of the existing methods. Lee et al. 2024 have also shown that their method results in superior generalization performance on these benchmarks.
+Some grammatical/clarity related issues:
+
+Line 161: investigated the following theorem shows that
+Line 213: the change rate
+Questions:
+There are some claims made in the paper that require evidence/clarification:
+
+While the proposed method is computationally more efficient, it is also true that the overhead cost of regularization methods like L2 is not significantly high as claimed in the paper unless higher-order computation is involved. In fact, L2 is quite common even in large-scale models. Some methods only involve computing scores based on the layer outputs which is not very expensive. The computational cost is only significant if there is higher-order computation involved.
+Line 382-386: We don't entirely lose previous knowledge in S&P. Rather, adding noise ultimately helps in better generalization. Even in the case of Lee et al. 2024 paper, they showed better generalization for a re-initialization method which is crucial.
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

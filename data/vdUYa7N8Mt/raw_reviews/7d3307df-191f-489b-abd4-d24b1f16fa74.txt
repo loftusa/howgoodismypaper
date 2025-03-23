@@ -1,0 +1,42 @@
+Summary:
+The study addresses a core issue in lossy image compression: achieving high perceptual quality in the decompressed images while minimizing distortion and compression rate. A unique aspect of this paper is its focus on algorithmic realism — a concept that considers human perception and aims to create compressed images that appear realistic to a critic. This builds on prior work on the rate-distortion-perception (RDP) trade-off, but instead of relying heavily on common randomness, it introduces a framework that reduces or eliminates the need for shared randomness between encoder and decoder in practical settings.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+Interesting Insight into Realism Constraints: By redefining perceptual realism through an algorithmic lens, the paper provides a fresh perspective on the RDP trade-off and its practical applications in lossy compression.
+Reduced Dependency on Common Randomness: The finding that common randomness is only needed in impractically large batches addresses a significant gap in previous theoretical predictions versus experimental observations.
+Good Theoretical Foundation: The study provides rigorous proof and aligns well with information theory, making it a valuable resource for researchers interested in theoretical advances in compression.
+Weaknesses:
+While the paper provides rigorous theoretical derivations and proofs, one significant limitation is the lack of practical illustrations or implementations that could help readers appreciate the impact and contributions of the proposed framework in real-world applications. The authors claim that algorithmic realism simplifies the practical attainment of the rate-distortion-perception (RDP) trade-off by reducing the dependency on common randomness between encoder and decoder. However, without practical visualizations or demonstration attempts, it becomes challenging for readers to intuitively evaluate the work’s contributions.
+
+Though I acknowledge the value of theoretical derivations, the paper appears incomplete and, consequently, less persuasive without empirical validation. I strongly recommend that the authors complement their theoretical results with practical experiments, such as specific implementations, visual examples, or a demonstration. This would significantly enhance the paper’s credibility and provide readers with a tangible understanding of the theory’s implications.
+
+To make these points more specific, I propose the following questions:
+
+1. Evaluation of Practical Applicability
+
+The paper offers extensive theoretical proofs, yet there is no concrete implementation provided to demonstrate how this framework could be integrated into real-world image compression tasks. Could the authors consider validating the proposed approach on an actual compression system to illustrate its practical efficacy?
+
+2. Feasibility of Reducing Common Randomness.
+
+While the theory is sound, it would benefit from an empirical investigation to verify that reducing common randomness does not detract from visual quality. Without experimental validation, how can readers assess the applicability of these theoretical findings to practical compression systems?
+
+3. Experimental Support for Theory-Practice Connection
+
+The paper’s theoretical framework is detailed but lacks experimental applications or use cases. Could the authors consider providing experiments to demonstrate the balance of visual quality and compression rate achieved by the proposed approach?
+
+4. Inclusion of Visual Case Studies
+
+Given the claims of practical feasibility, is it possible to provide specific examples of compressed and decompressed images to offer readers a more direct perception of the quality improvement achieved by the proposed approach?
+
+These additions would substantially enhance the paper by bridging the gap between theoretical results and their practical impact, allowing readers to more fully appreciate the contributions of this work.
+
+Questions:
+Please see the weakness.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 2: You are willing to defend your assessment, but it is quite likely that you did not understand the central parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

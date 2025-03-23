@@ -12,20 +12,20 @@ class RatingValue(Enum):
 
 
 class ConfidenceValue(Enum):
-    VERY_LOW = "1: You are not familiar with the relevant literature and are guessing."
-    LOW = "2: You are not confident in your assessment, but have read the relevant literature."
-    MEDIUM = "3: You are fairly confident in your assessment."
-    HIGH = "4: You are confident in your assessment and very familiar with the relevant literature."
+    VERY_LOW = "1: You are unable to assess this paper and have alerted the ACs to seek an opinion from different reviewers."
+    LOW = "2: You are willing to defend your assessment, but it is quite likely that you did not understand the central parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked."
+    MEDIUM = "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked."
+    HIGH = "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
     VERY_HIGH = "5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully."
 
 
 class RecommendationValue(Enum):
     STRONG_REJECT = "1: strong reject"
-    REJECT = "2: reject"
-    WEAK_REJECT = "3: reject, not good enough"
-    WEAK_ACCEPT = "4: accept, good enough"
-    ACCEPT = "5: accept"
-    STRONG_ACCEPT = "6: strong accept"
+    REJECT = "3: reject, not good enough"
+    MARGINALLY_BELOW = "5: marginally below the acceptance threshold"
+    MARGINALLY_ABOVE = "6: marginally above the acceptance threshold"
+    ACCEPT = "8: accept, good paper"
+    STRONG_ACCEPT = "10: strong accept"
 
 
 class EthicsFlag(Enum):

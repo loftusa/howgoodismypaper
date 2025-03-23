@@ -1,0 +1,34 @@
+Summary:
+This paper introduces a sparsity-aware machine unlearning method. First, it proposes to adaptively identify influence-critical parameters using a derived score function. Then, it applies existing machine unlearning methods (e.g., second-order unlearning) exclusively to optimize the identified parameters. The process of parameter identification and optimization is performed iteratively.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+The approach to identifying influence-critical parameters based on the retain set (and the forget set) appears original. The derivation is clear and reasonable. (However, the necessity needs clarification, as mentioned in the weaknesses below.)
+The paper is well-organized and easy to understand.
+It is meaningful to explore the applications of the proposed method for both memory-free and memory-aided successive machine unlearning scenarios.
+Weaknesses:
+In line 273, it appears that the differentiation is performed on 
+ rather than 
+.
+Doubts regarding the necessity of the proposed parameter identification approach. The authors derive a score function to identify informative parameters, involving calculating the derivative with respect to 
+ over 
+ and 
+. Why not directly optimize the mask parameters base on Eq.(4), which seems computationally cheaper and simpler with only once gradient calculation? Or why we need to transform Eq.(4) to Eq.(5)?
+Doubts about the claimed efficiency benefits. The paper claims improved efficiency for machine unlearning, but this may not be the case:
+Computation: Compared to vanilla second-order unlearning, the proposed method requires additional calculations involving twice the differentiation to identify informative parameters and still requires computing gradients for all parameters during the unlearning phase.
+Memory: Although masking hides certain parameters, storing the mask and associated gradients requires extra memory.
+Insufficient complexity analysis. A comprehensive analysis is needed, detailing the complexity of both the parameter identification and unlearning phases from perspectives like memory and computation.
+What are the specific advantages of the proposed method for the successive machine unlearning? The descriptions (e.g., in Line 362) is too broad and hard to understand. Detailed, clear and reasonable analysis is needed.
+It is recommended to use the standard notation format as outlined by ICLR guidelines instead of using a uniform font throughout all equations. The correct formatting guidelines can be found on the official website.
+Questions:
+Why do we need a layer-wise optimization (Eq.(9)) in addition to the individual optimization (Eq.(8)) during the mask selection process?
+How is the first item in Eq.(13) derived? It is hard to follow the method description in Sec.3.3.2.
+Flag For Ethics Review: No ethics review needed.
+Details Of Ethics Concerns:
+NA
+
+Rating: 5: marginally below the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

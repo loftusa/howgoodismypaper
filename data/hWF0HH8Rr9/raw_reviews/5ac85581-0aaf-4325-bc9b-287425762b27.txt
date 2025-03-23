@@ -1,0 +1,38 @@
+Summary:
+This paper proposes a Traffic Signal Control framework modeled as a multi-agent environment. The proposed framework consists of a Transformer architecture for feature extraction and an MLP for computing the action. The trained policy can be implemented for networks of different size.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+The paper is well structured and was easy to follow. The problem considered in this manuscript is a very important problem and has been motivated very well in the introduction. The problem description and formulation is adequately. The use of transformer architecture is also well justified.
+
+Weaknesses:
+Clarity of writing and presentation: There are multiple instances where the paper lacks clarity in terms of writing and the meaning can only be understood with someone who are in this domain.
+
+Novelty: The paper does not propose any innovative approach. The use of Transformer or Transformer type architectures with RL and MARL is a well-known approach. This paper showcases the implementation of the architecture for the TSC problem.
+
+Baseline comparison: There should be a comparison to traditional TSC algorithms such as SCOOT. Without a comparison to traditional baseline methods, it is not possible to infer the effectiveness of the method.
+
+The abstract can be more meaningful. The abstract should cover the outline of the paper. But that’s not the case here.
+
+What is the 'static' baseline comparison? Please have a formal definition for it.
+
+Figure 7b and 7c: it would be nice if a different color palette and markers were used to represent these plots. In its present for it is very difficult to interpret.
+
+7)Font size for all the plots can be increased
+
+Questions:
+It is not clear how this problem can be formulated as a Markov Decision Process (MDP). In a real traffic flow situation, the state of the entire system is not affected by the action, but also by various other external factors.
+
+How are collision and accidents handled? Are there negative rewards for this?
+
+3)What is W_i in equation 4
+
+Flag For Ethics Review: No ethics review needed.
+Details Of Ethics Concerns:
+N/A
+
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

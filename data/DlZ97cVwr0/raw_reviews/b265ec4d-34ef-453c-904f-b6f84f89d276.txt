@@ -1,0 +1,19 @@
+Summary:
+This paper introduces a benchmark for evaluating models based on recall rather than just accuracy. The authors tackle two challenges: the lack of complete correct output sets and the presence of multiple similar outputs. Using small organic molecules from the GDB-13 database, they fine-tune models and develop a method to predict recall based on perplexity. They also propose a novel beam search decoding method to maximize recall by avoiding duplicates, alongside a recall-aware loss function. This approach aims to enhance the ability of GLMs to generate all correct outputs, with potential applications in various fields, including security.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 1: poor
+Strengths:
+This paper explores the evaluation of recall rates for small language models, which is a meaningful endeavor.
+The paper investigates various methods to enhance the recall rates of models and has achieved some positive results.
+Weaknesses:
+The contributions of this paper are limited. On one hand, in improving recall through sampling methods and loss functions, the authors merely attempt different strategies, which can sometimes harm precision, and no solutions are provided. On the other hand, the improvements through fine-tuning appear to offer no significant contribution, as it is generally expected that fine-tuning would enhance performance on a specific task.
+The model is too singular, as the experiments in this paper only include the OPT-1.3B model. Therefore, the evaluation results and methods for enhancing recall may not generalize well.
+Questions:
+See weaknesses.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 2: You are willing to defend your assessment, but it is quite likely that you did not understand the central parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

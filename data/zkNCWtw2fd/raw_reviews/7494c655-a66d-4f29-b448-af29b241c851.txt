@@ -1,0 +1,19 @@
+Summary:
+This paper introduces a hybrid batch training approach for multilingual information retrieval by combining monolingual and cross-lingual training data. The core methodology relies on mixing different types of training data using probability weights α and β. While the implementation is straightforward, the novelty of the contribution is limited.
+
+Soundness: 2: fair
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+Addresses a relevant challenge in multilingual information retrieval.
+Provides comprehensive experimental validation across multiple benchmark datasets (XQuAD-R, MLQA-R, MIRACL).
+Weaknesses:
+The primary contribution merely combines two existing training approaches with probability weights, presenting a straightforward and obvious solution.
+The paper employs translated QA pairs as data augmentation, creating an unfair comparison with baseline methods that do not utilize this advantage.
+Questions:
+None.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

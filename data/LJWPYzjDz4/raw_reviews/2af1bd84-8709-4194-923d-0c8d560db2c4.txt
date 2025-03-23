@@ -1,0 +1,31 @@
+Summary:
+The paper proposes Easz, a novel image compression framework designed for edge devices, addressing the limitations of existing NN-based compression methods. By introducing an erase-and-squeeze technique, Easz allows for flexible compression levels and efficient image reconstruction, making it suitable for various IoT applications.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+The erase-and-squeeze method offers a flexible alternative to traditional uniform downsampling techniques, enhancing compression adaptability.
+The framework is evaluated on a real-world testbed, providing credible evidence of its performance compared to existing compression methods.
+Easz is compatible with existing compression algorithms, increasing its utility in practical applications.
+Weaknesses:
+The review of related work lacks depth, particularly regarding recent advancements in image compression techniques applicable to edge devices.
+The reliance on GPU capabilities for reconstruction may limit the framework's applicability in low-power or resource-constrained environments.
+Questions:
+In the equation G_u=\left{g_u^0(i,j)=(i-1)/(h-1),g_u^1(i,j)=(j-1)/(w-1)\right}
+, is 
+ a coordinate in the range 
+? Can the authors clearly explain the difference between the symbols 
+, 
+, 
+, and 
+?
+Does the erase-and-squeeze process disrupt the spatial structure between image pixels, negatively impacting conventional compression?
+Do the authors compare their performance with related work that focuses on improving the quality of compressed images (e.g., RBQE) at the same bpp?
+Why do the authors focus on optimizing L1 and LPIPS in the loss function while using unparameterized perceptual metrics instead of reporting performance metrics like PSNR, MS-SSIM, and LPIPS? How do the other models, SwinIR, realESRGAN, and BSRGAN, perform on these unparameterized metrics?
+Is the erasure-extrusion process unique to each image? Additionally, does the quality of the reconstructed compressed image vary as a result? Does this pose a risk for downstream tasks?
+How are the 2x downsampled images in Section 4.3 obtained? Are all three models—SwinIR, realESRGAN, and BSRGAN—67MB in size? The models I download are actually 64.16MB, 63.95MB, and 63.79MB, respectively.
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes

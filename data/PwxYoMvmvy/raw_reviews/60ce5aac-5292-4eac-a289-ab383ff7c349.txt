@@ -1,0 +1,26 @@
+Summary:
+This paper investigates the role of dropout in GCNs, addressing a gap in understanding how dropout interacts with graph structure in these models. The authors provide a theoretical analysis that dropout in GCNs generates dimension-specific stochastic subgraphs, which introduces a unique form of structural regularization that doesn’t appear in traditional neural networks. The study highlights that dropout’s effects vary based on node degree, leading to adaptive regularization that leverages topological node importance. The paper also discuss dropout’s capacity to reduce oversmoothing and presents generalization bounds tailored to graph-specific dropout effects. Additionally, it explores the combined effect of dropout and batch normalization in GCNs, identifying a mechanism that enhances overall regularization.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+The paper focuses on the role of dropout in GCNs, specifically analyzing its unique interactions with graph structure. This originality is meaningful to the community.
+The work presents a well-developed theoretical framework, introducing concepts like dimension-specific stochastic subgraphs, adaptive regularization based on node degree, and graph-specific generalization bounds.
+Including comprehensive experiments across 16 datasets for both node-level and graph-level tasks is encouraging.
+Weaknesses:
+The authors provide generalization bounds for graph neural networks with dropout. However, further clarification is needed on how this finding offers insights into understanding and designing graph neural networks, or any specific guidance on selecting dropout rates. With this theory, is it possible to get the best dropout rate with a specific graph structure and GNN? This would help demonstrate the practical relevance of the theory. Additionally, can the experiments provide corresponding analyses regarding this theory? For example, whether the change in performance at different dropout rates is consistent with the change in generalization bounds can be analyzed from the theory.
+The use of dropout or similar strategies designed specifically for graphs is also widely applied in GNNs, like DropNode, DropEdge, DropMeassge, etc [1, 2, 3]. The authors may need to discuss its relevance to this study, including whether the proposed theory can analyze these methods and the essential difference and connection between dropout and these methods. Compared to traditional dropout, does dropout on the graph structure more directly enhance the performance of graph neural networks?
+[1] Dropedge: Towards deep graph convolutional networks on node classification
+
+[2] Dropmessage: Unifying random dropping for graph neural networks
+
+[3] Graph random neural networks for semi-supervised learning on graphs
+
+Questions:
+See weaknesses.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

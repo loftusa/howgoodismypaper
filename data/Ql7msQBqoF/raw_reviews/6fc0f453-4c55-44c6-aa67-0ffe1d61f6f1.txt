@@ -1,0 +1,25 @@
+Summary:
+This paper proposes MAC-CAFE, a framework to iteratively refine a knowledge based based on expert feedback. They provide experiments on a relatively lesser used coding language, Pony, to simulate a setting where current KBs do not have high amounts of information available. They also provide results on other datasets such as SciPy, Tensorflow, etc.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+The idea of knowledge-base fixes via edits/additions/deletions is highly relevant today, and MAC-CAFE proposes an interesting and feasible way to approach the same.
+
+Weaknesses:
+Section 4.1 that introduces the problem formulation can be written more clearly, especially regarding the following points:
+Introduce tau(q_i, K) before equation-1 in page 4, to ensure the equation is understandable - currently tau is first introduced in the next subsection.
+Explain the function g - is g supposed to give a higher score when o_i=c_i?
+Define o_i=B(qi, tau(qi, K)) [is this the definition?]
+I'd suggest to add a short note describing the ReACT agent (perhaps near line 348) - even though it has been cited, not everyone might have a working knowledge of it.
+Line 348, Actors: I assume a real-life knowledge base would have a huge number of documents - how feasible is it to have a distinct actor model for each document?
+What are the models used for (1) B the LLM, and (2) the actors? I was unable to find it in Section 6. I suggest to add a subsection or paragraph on the same in Section 6.
+I also suggest the authors to add a paragraph each about the baseline PromptAgent and about Monte Carlo Tree Search for more accessibility of the paper.
+Questions:
+I'd suggest to make the text in Figure 1 (atleast the different stages of your proposed framework) bigger, for ease of reading it!
+Edit suggestion: Line 322, change global reward function from r to R to ensure consistency.
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

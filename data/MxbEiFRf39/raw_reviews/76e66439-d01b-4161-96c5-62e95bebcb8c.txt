@@ -1,0 +1,24 @@
+Summary:
+The paper introduces NNsight and NDIF, a framework and a cloud inference service designed to facilitate research on large-scale AI models, and enable study of the representations and computations learned by large neural networks. This work proposes a method for organizing experiments on very large models, reducing engineering burden, enhancing reproducibility, and enabling low-cost communication with remote models. The NNsight is an open-source implementation of the intervention graph architecture that extends PyTorch to support transparent model interventions without requiring local storage or management of model parameters. And the NDIF is an open-source cloud inference service that supports the NNsight by providing behind-the-scenes user sharing of model instances to reduce the costs of large-scale AI research.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 4: excellent
+Strengths:
+The intervention graph architecture and the NNsight system provide a practical and efficient way to decouple experimental and engineering code, making it easier to conduct complex experiments on studying the intermediate representations and gradients of large models.
+The paper includes a thorough performance evaluation comparing NNsight and NDIF with HPC and Petals, demonstrating the efficiency and effectiveness of the proposed solutions.
+The performance comparisons between NNsight and other frameworks like baukit, pyvene, TransformerLens show the similar efficiency of NNsight.
+The remote execution of NNIF provides the easy usage for users.
+Weaknesses:
+While the developed tools of NNsight and NDIF are very useful in scientific study of AI models, there is no founded insights of this work. I'm not sure whether this contribution is enough for the acceptance.
+Exploiting the DAG representation is not novel. As indicated by the authors, [1] has proposed the DAG concepts and use it to accelerate computation. Besides, the Torch Profiler [2] and torch.jit.trace [3] can help to dissect the model. I do not see any obvious technical challenges to implement the NNsight. Could you elaborate more on such challenges and illustrate how you address them? And how the NNsight is different from the Torch Profiler and torch.jit.trace?
+For the practical usage like shown in Figure 4, I do not see obvious advantages of NNsight than using hooks of Torch. The required number of code lines of them are similar. Could you also elaborate more about this?
+[1] Theano: A python framework for fast computation of mathematical expressions. 2016 [2] PyTorch Profiler. https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html. [3] Torch.jit.trace. https://pytorch.org/docs/stable/generated/torch.jit.trace.html.
+
+Questions:
+Please refer to the weaknesses and provide more clarifications.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 8: accept, good paper
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes

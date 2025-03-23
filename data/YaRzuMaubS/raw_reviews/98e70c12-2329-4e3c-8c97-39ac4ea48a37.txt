@@ -1,0 +1,40 @@
+Summary:
+The paper introduces a formal definition of deception based on the interaction between a speaker and a listener, both modeled as Partially Observable Markov Decision Processes (POMDPs). In particular, a "regret" theory is proposed to quantify deception by measuring the speaker's influence on the listener's beliefs, actions, and utility. Experiments and evaluations were conducted to assess whether the formal "regret" theory aligns with human judgments about deception.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+Originality:
+
+The paper introduces a novel approach to quantifying deception within the framework of POMDPs, capturing different forms of deceptive behavior.
+Quality:
+
+Several well-designed experiments were conducted to assess how well the formal definition aligns with human intuition regarding deception.
+Significance:
+
+The work is highly relevant to the fields of AI ethics and safety, providing a foundation for future work.
+Weaknesses:
+A realistic scenario of deception typically involves multi-step interactions between the speaker and listener. Although the paper states, "While we consider this single-step formulation for simplicity of exposition, it is straightforward to extend the formalism into a sequential setting," it is not clear how the current single-step communication (PO)MDP model could be adapted to capture multi-step interactions. The extension to a sequential setting is not sufficiently demonstrated or explained.
+
+The paper overlooks the importance of the speaker’s beliefs and intentions. For example, does the speaker believe their statement is false? This omission can lead to misclassifications, such as confusing incompetence with deception, as noted in the paper’s limitations. Furthermore, intent is crucial in legal and ethical definitions of deception, where AI agents may exhibit intentional deception towards users. The paper’s "regret" theory is purely consequentialist, focusing solely on the outcome or utility without considering the speaker's intent. [1][2]
+
+The experiments involving large language models (LLMs) don't explore the diversity of deceptive capabilities these models might show. For instance, LLMs can engage in strategic deception under specific conditions, such as when pressured. This aspect needs further evaluation of LLM deception. [3]
+
+1.Francis Rhys Ward, Francesco Belardinelli, Francesca Toni, and Tom Everitt. Honesty is the best policy: Defining and mitigating ai deception, 2023.
+
+Jaume Masip, Eugenio Garrido, and Carmen Herrero. Defining deception. Anales de Psicología, 2004. ISSN 0212-9728. URL https://www.redalyc.org/articulo.oa?id=16720112.
+
+Large Language Models can Strategically Deceive their Users when Put Under Pressure https://openreview.net/forum?id=HduMpot9sJ
+
+Questions:
+In Figure 3 of the supplement, you state, "The figure on the left shows conversations from Deal or No Deal." Did you mean the figure on the right?
+
+Figure 5 in the supplement references "posterior information." Where is the Bayesian model described?
+
+How is the reward calculated in the examples?
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

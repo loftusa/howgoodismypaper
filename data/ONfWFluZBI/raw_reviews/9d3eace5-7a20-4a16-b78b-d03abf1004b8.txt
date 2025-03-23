@@ -1,0 +1,46 @@
+Summary:
+This paper focuses on contrastive learning (CL) methods for dynamical systems. The authors show that under certain assumptions CL performs system identification and can therefore uncover the latent dynamics of the data. The theoretical findings are applied to switching linear dynamics and non-linear dynamics, and are demonstrated from an empirical point of view using simulated data.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+Overall this is an interesting paper, that gives an insight on why CL techniques are effective for system identification
+The introduced CL variant is well presented and theoretically grounded, and could inspire further theoretical research and models
+DynCL can effectively identify latent states and system dynamics in the experiments on simulated data
+The authors present a good selection of ablation studies to demonstrate the impact of the different modeling/parametric choices
+Weaknesses:
+MORE REALISTIC EXPERIMENTS
+
+As stated by the authors in the limitations of this work, the focus of this paper is only on simulated data. While I understand their point of view, and I also agree that the theoretical contribution/simulated experiments are also valuable by themselves, I fear that the impact of this work in this current state will be more limited than it could be if there was a better demonstration of real world applicability.
+
+You could for example try to apply your method to some of the datasets used in "Discovering State Variables Hidden in Experimental Data" (https://www.cs.columbia.edu/~bchen/neural-state-variables/).
+
+If the above is too challenging to achieve, you should at least try to discuss more in detail what each of you theoretical assumptions means in practice, and what you expect to happen if they are not met in real-world experiments. For example, the fact that 
+ is a normal distribution seems quite strict in many applications.
+
+BASELINE
+
+The baseline you use in your experiment seems quite weak, as it does not even use a dynamics model. Have you tried other approaches, for example models doing next-token prediction tasks?
+
+CLARITY
+
+There are several missing definitions/clarifications in the paper that make it a bit harder to follow:
+
+N in (3) is not defined
+"Supp figure" in line 133 is unclear
+Not sure what "(…)" in line 145 means
+The name 
+-SLDS is never formally defined
+In table 1 you have a column called "theory" with different options. What do these option represent exactly?
+The abbreviation "GT", which I assume stands for ground truth is used in many places but never defined
+What is 
+ in equation (8)?
+The vMF abbreviation is never defined
+The DynCL results from Table 1 should be discussed more in depth.
+Questions:
+You use the Gumbel-softmax to approximate the argmin. In my experience, the proper turning of the schedule of its temperature parameter is quite challenging. Is it something you noticed as well?
+Flag For Ethics Review: No ethics review needed.
+Rating: 8: accept
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

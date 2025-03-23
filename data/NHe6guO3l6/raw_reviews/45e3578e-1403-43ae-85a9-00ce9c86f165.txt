@@ -1,0 +1,22 @@
+Summary:
+This paper proposes an exact federated unlearning method which completely removes the influence of a particular client on the aggregated model. The traditional method for exact unlearning involves retraining the model from scratch. This is effective in removing influence, but also leads to degrading performance after unlearning. To address this issue, the authors propose to maintain a local model that is trained fully on local datasets. Instead of randomly reinitializing the model after unlearning, they use isolated local models for initialization. This method ensures exact unlearning while improving the post-unlearning performance.
+
+Soundness: 2: fair
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+The proposed algorithm effectively achieves exact unlearning by retraining from isolated local models instead of random reinitializations.
+The method maintains model performance post-unlearning, making it highly practical for deployment in real-world federated systems.
+The method is validated across multiple datasets, demonstrating its effectiveness in achieving better post-unlearning accuracy.
+Weaknesses:
+The core idea of this paper stems from using local models instead of random initialization. This trick is quite common in regular federated learning.
+Definition 1 and theorem 1 seem redundant. Utilizing a disjoint binary tree structure to eliminate double influence is intuitive enough that it does not require additional justification or explanation.
+The paper assumes that each local client has the same amount of data. However, varying data quantities can lead to significant differences in the performance of local models, which may impact post-unlearning aggregation. The authors should investigate this realistic scenario.
+In figure 4(d), there seems to be a performance decline in BMT and MMT while the curve for retraining is still rising. Can the authors let the curve to converge and explain why this happens?
+Questions:
+Weaknesses.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

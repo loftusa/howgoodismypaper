@@ -1,0 +1,28 @@
+Summary:
+The authors propose an explainable AI-based algorithm, integrated gradients, to employ the feature importance of each client in the aggregation of the FL system, apply it to the 5G-related tasks, and process the importance estimation in each round to adopt the dynamic feature of 5G networks. Results compared with traditional aggregation algorithms, such as FedAvg and FedProx show some performance gain on one standard dataset.
+
+Soundness: 1: poor
+Presentation: 2: fair
+Contribution: 1: poor
+Strengths:
+The method of employing integrated gradients to estimate the contribution/importance of each client is interesting.
+Weaknesses:
+The proposed scheme seems standard and simply applied to the FL system. Details on the key steps are largely omitted. For example, it is not clear how the local client calculates the feature importance of its own data. According to Eq. 3 and my basic understanding of integrated gradients, this step needs a basis from other clients or the global model. However, this detail has not been fully explored in the provided content.
+
+To adopt the dynamic characters of the environment, the authors just let the importance calculation happen in every T round, which is kind of straight and trivial. In addition, the advantages of this step are not investigated in the experiments.
+
+Wrong use of DP. Adding random noise on the feature importance will not protect the raw data of clients, and the related experiments are also confusing as many details are not provided.
+
+Questions:
+How to estimate the feature importance without a basis from other participants?
+
+What is the reason that the client does the importance estimation itself? What if any malicious or dishonest client exists in the system?
+
+What are the benefits of adding noises to the importance?
+
+Many key steps or designs lack technical details, is there any specific reason for this?
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 1: strong reject
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes

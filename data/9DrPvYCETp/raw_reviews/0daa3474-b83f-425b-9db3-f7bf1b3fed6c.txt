@@ -1,0 +1,28 @@
+Summary:
+This work considers the application of a shared memory mechanism to the MAPF setting.
+
+Soundness: 2: fair
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+The writing is generally clear and polished.
+The approach is well-grounded in prior literature, and the algorithmic details are well-explained.
+Figure 1 is a useful complement to the written algorithmic details, and makes it easy to understand the method at a glance.
+Figure 10 analysis is nice.
+Weaknesses:
+It is hard to get a relative sense of the competitiveness of this approach. The baselines did not feel particularly well-motivated, and MARL communication works, which I'd argue share a similar goal, were not used as baselines (e.g. [1])
+More generally, I am left not knowing exactly what I should take away from the results—Figure 5 seems to show that SRMT and variants achieve modest results compared to baselines (and the baselines used are not motivated or described in sufficient detail).
+[2] I consider this a necessary work to acknowledge, given it is one of the first works discussing the use of attention in MARL
+Nitpicks:
+I cannot interpret the error bars in Figure 4—it is too muddled.
+Despite the writing overall being clear, the language could be tightened somewhat; e.g. L043: "has to reach its goal" is quite colloquial; also contraction in L497. I recommend combing through the paper and essentially asking each word/phrase to justify itself—and to be as specific as possible, avoiding colloquialisms.
+[1] Jakob Foerster, Ioannis Alexandros Assael, Nando de Freitas, and Shimon Whiteson. Learning to communicate with deep multi-agent reinforcement learning. In D. Lee, M. Sugiyama, U. Luxburg, I. Guyon, and R. Garnett (eds.), Advances in Neural Information Processing Systems, volume 29. Curran Associates, Inc., 2016. URL https://proceedings.neurips.cc/paper_ files/paper/2016/file/c7635bfd99248a2cdef8249ef7bfbef4-Paper.pdf.
+
+[2] Iqbal, S. & Sha, F.. (2019). Actor-Attention-Critic for Multi-Agent Reinforcement Learning. <i>Proceedings of the 36th International Conference on Machine Learning</i>, in <i>Proceedings of Machine Learning Research</i> 97:2961-2970 Available from https://proceedings.mlr.press/v97/iqbal19a.html.
+
+Questions:
+Following up on a weakness above: Why was this approach not evaluated against any MARL baselines that implement communication channels between agents?
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

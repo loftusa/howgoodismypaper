@@ -1,0 +1,22 @@
+Summary:
+In this manuscript, the authors present a physics-transfer (PT) learning framework to merge physics-based modeling and machine learning techniques in complex engineering problems. The framework aims to resolve the accuracy-performance dilemma by learning physics across digital models of varying fidelities. The paper demonstrates the framework's capabilities through two case studies: predicting the strength of metallic alloys and modeling the morphological development of human brains. The authors claim that their approach not only enhances predictive accuracy but also provides new insights into the underlying physics of these systems.
+
+Soundness: 2: fair
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+The PT framework represents a novel integration of physics and machine learning, introducing an approach to the challenges posed by multiscale problems in engineering sciences. By considering both low-fidelity and high-fidelity models, the authors creatively combine existing ideas to form a new methodology. The motivation for the PT framework is articulated clearly, establishing a strong rationale for the research. The paper successfully outlines the accuracy-performance dilemma, making it accessible to readers familiar with the challenges in engineering modeling. Furthermore, the potential applications in materials science and neuroscience could lead to substantial advancements in these fields.
+
+Weaknesses:
+The manuscript lacks a comprehensive comparison with existing methods such as 
+-learning and transfer learning. A more in-depth analysis highlighting the advantages and limitations of the PT framework relative to these approaches may enhance the credibility of the manuscript. Specific metrics and results demonstrating improved performance would provide stronger evidence of the framework's contributions. The manuscript contains sections that are overly technical, which may limit its accessibility to a broader audience. E.g., the explanation of the PT framework's mechanics could benefit from simpler language and additional visual aids to enhance understanding. The manuscript does not adequately address the scalability of the PT framework, particularly regarding its application to larger datasets or more intricate models. A discussion about the challenges and potential solutions for scaling the approach would be valuable.
+
+Questions:
+Can the authors provide additional metrics or results comparing the PT framework's performance to that of existing methods like 
+-learning and LFAF? This would help clarify the unique contributions of the PT approach.
+What specific strategies do the authors envision for scaling the PT framework to accommodate larger datasets or more complex problems? Insights into this would enhance the practical relevance of the framework.
+How do the authors guarantee that the learned physics from the PT framework remains interpretable and relevant in practical applications? A discussion on the interpretability of the model's outputs would be beneficial.
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

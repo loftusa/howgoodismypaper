@@ -1,0 +1,26 @@
+Summary:
+The paper performs a comprehensive theoretical analysis of dropout in the case of Graph Convolution Networks (GCN) from multiple perspectives: dimension-specific graph structure modification during training, degree-dependent effect on nodes, impact on over-smoothing, and it’s combined effect with batch normalization.
+
+Soundness: 1: poor
+Presentation: 3: good
+Contribution: 2: fair
+Strengths:
+The theoretical analyses are detailed and sound.
+Mathematics and the overall logic of the paper is easy to follow.
+The paper attempts to better understand the internal workings of dropout in GCNs.
+Weaknesses:
+While I like the theoretical analyses presented in the paper, I think the experiments do not quite align to support the theoretical claims. Below are my concerns with the paper.
+
+The authors referring to the dropout and batch normalization as “our approach” in lines 409-410 and 466 is misleading since the techniques have been well-established in deep learning for improving performance. The contribution of the authors lies in the detailed theoretical analysis of these techniques within the context of a GCN. While it is a valuable contribution, the techniques should not be claimed as their approaches.
+The major concern is with the conclusions drawn from the experiments. It is already established in deep learning that dropout and batch normalization enhance performance through regularization. Therefore, only comparing the performance in Tables 1, 2, and 3 does not provide sufficient evidence that the observed improvements are specifically due to the additional effects of dropout in graph neural networks, as analyzed in the theorems. The authors need to design experiments that can directly validate their theoretical analysis.
+Section 3.4 describes an interesting connection between dropout, the number of GCN layers, and over-smoothing. However, the authors fail to provide experimental evidence to support this relationship. Demonstrating how dropout affects over-smoothing in GCN with varying layer depths would strengthen the paper.
+Line 472 (regarding Table 1) and line 483 (regarding Table 2) draw contrasting conclusions about the effect of dropout on Dirichlet Energy. What is the reason behind this difference in the behavior of dropout?
+Minor: Repeated use of variable 'd' for denoting degree (line 133) and node feature dimensionality (line 141).
+With a sound experimental design that can directly validate the theoretical claims, I believe the paper would be a good contribution to the GCN community.
+
+Questions:
+Section 3.2 introduces the concept of dimension-specific subgraphs. How does this impact the aggregated node representation (including all dimensions)? Since the performance of a GCN ultimately depends on the aggregated representation, it would be insightful to explore this relationship.
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

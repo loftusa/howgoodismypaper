@@ -1,0 +1,19 @@
+Summary:
+This paper introduces a simple method called hybrid batch training, which involves translating to obtain parallel data in multiple languages, and sampling these data to construct a multilingual training dataset. The model is trained by inputting monolingual or multilingual training data with a certain probability, thereby balancing its performance in both scenarios.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 1: poor
+Strengths:
+This paper proposes a hybrid batch training strategy to simultaneously improve zero-shot retrieval performance across monolingual, cross-lingual, and multilingual settings while mitigating language bias.
+The hybrid batch training strategy simply modifies the training data batches without necessitating the introduction of loss functions or new architectural components.
+Weaknesses:
+The proposed hybrid batch training strategy only modifies the input training data, which lacks novelty.
+This paper lacks sufficient analysis to the field of multilingual information retrieval. It does not adequately demonstrate the shortcomings of existing work nor the importance and necessity of this study.
+The experiments only compare the performance of different input strategies but not various multilingual information retrieval methods.
+Questions:
+What are the advantages of hybrid batch training strategy in terms of convenience, overall efficiency, and experimental effectiveness compared to existing multilingual information retrieval methods?
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

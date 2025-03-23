@@ -1,0 +1,27 @@
+Summary:
+This paper propose a paradigm to offer compression flexibility and efficiency improvement for edge-device scenarios. It propose a conditional uniform-based sampler for flexible image size reduction and reconstruction, as well as a lightweight transformer-based structure to redeuce reconstruction load on the receiver side.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+To avoid issues stems from adjacent sampled areas, this paper add constraints for row-based randoming sampling.
+
+This paper introduces an erase-and-squeeze method to enhance flexibility and efficiency.
+
+Weaknesses:
+The proposed uniform-based sampler gives better results by adding constraints. However, it is still a rule-based sampling method that is unaware of the content. Why didn't you consider a learn-based sampler solution to improve the performance?
+
+The input of the reconstruction. Is the masking map also needs to be coded and transmitted? Is it also an input of the reconstruction network? I think these details should also be described in Figure 2.
+
+Settings about Table 1. Easz is a lossy compression method but other super-resolution methods such as SwinIR are free from bit cost constraints. Why does the proposed method Easz show such a performance improvement (larger than 3dB)? What are the testing settings(such as the input size) for the proposed method and the other methods?
+
+Some citations are neglected, e.g., the citation for the methods in Table 1 and Table 2. Please check about these problems.
+
+Questions:
+see the weakness
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes

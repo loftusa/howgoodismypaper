@@ -1,0 +1,30 @@
+Summary:
+The authors have proposed Constant Q Cepstral Coefficients (CQCC) as a measure to identify neurodegenerative diseases (like Parkinson’s and Amyotrophic lateral sclerosis). The proposed measure is compared against basic acoustic features Jitter Shimmer Teager Energy and MFCC using traditional machine learning classifiers like random forest and Support vector machines. The discriminator power of CQCC is demonstrated using two different datasets i.e. Italian Parkinson’s Voice and Speech dataset and Minsk2019 ALS database.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 3: good
+Strengths:
+The paper contributes towards developing interpretable features representation for neurodegenerative diseases.
+A comparison with mostly commonly used features like MFCC
+evaluation on two different languages and diseases.
+achievement of significant performance over widely used feature sets by neurodegenerative research community.
+demonstration of improved class separation of CQCC over MFCC using LDA plots.
+Weaknesses:
+hyperparameter optimization is not performed.
+it is not clear what is the dimensionality of each feature set, consider adding a table or paragraph in the methodology section detailing the dimensionality of each feature set used.
+Have you considered discussing the trade-offs between your approach and deep learning methods like wav2vec or BERT? This could help contextualize your choice of method and highlight any advantages in terms of interpretability or computational efficiency.
+As the research field lacks large amount of datasets. In the limitations section, could you discuss how the scarcity of large datasets in this field might impact the generalizability of the findings, and what implications this has for future research?
+Could you provide more context in the methodology section about why these specific traditional feature sets were chosen for comparison? Are there particular characteristics of these features that make them relevant benchmarks for neurodegenerative disease detection?
+consider adding more references
+Questions:
+why and how your proposed feature is helpful?
+what characteristic of speech the features are representing and how they represent neurodegeneration in speech (interpretability for clinicians?)
+why you have not performed fusion of features?
+any computational cost advantages?
+explain dimensionality of feature sets and the time window for extraction of features, and how did you generate a representation for an audio recording.
+how did you handle the variable duration of audio recordings?
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

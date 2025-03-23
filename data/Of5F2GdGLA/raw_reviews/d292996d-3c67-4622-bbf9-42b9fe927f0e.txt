@@ -1,0 +1,29 @@
+Summary:
+The paper presents VeSX, a framework for enhancing large language models (LLMs) in web automation tasks by introducing verification, self-correction, and in-context learning. VeSX aims to tackle the common challenges in web automation workflows, such as subtask infeasibility and data scarcity, by implementing three key components: subgoal-guided verification, which checks the accuracy of each subtask; hierarchical self-correction, allowing the model to reflect and replan when errors occur; and an exemplar bank for in-context learning, storing structured examples that improve decision-making. Evaluated on the WebArena benchmark, VeSX achieved a state-of-the-art success rate of 34% across multiple scenarios without human guidance, demonstrating its potential to improve accuracy and reliability in complex, multi-step web interactions.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+The web automation task is interesting and worth exploring.
+The proposed self-reflection approach seems to have great improvement in performance, highlighting its potential to enhance task success and reliability in complex, interactive environments.
+Weaknesses:
+The novelty is limited. Compared to previous work on web automation, the paper integrates self-reflection and retrieval-augmentation components, both of which have been widely explored. The paper also lacks discussions on relevant works on reflection and retrieval augmentation.
+The writing needs to be improved, especially in explaining the main components and their novelty.
+Section 2.1 Overview is empty
+Clearly indicate success rates as percentages by adding the percentage sign (e.g., 34% instead of just 34)
+It will be better to put short descriptions in the captions for terms in the table (‘Shop’, ‘CMS’, ‘Red’, ‘Git’, ‘Map’).
+Adding example prompts would provide readers with a practical understanding of the pipeline.
+Figures need to be significantly improved:
+‘orders’ rather than ‘oreders’ in the teaser figure.
+Miss left bracket for ‘click sorted by]’. Is ‘click [sorted by]’ and ‘click [sortby]’ the same operation?
+the texts frequently touch or cross the boundaries of the icons.
+Some figures are blurry and difficult to interpret. (e.g. In Figure 2, it is not clear what the four boxes below the environment represent.)
+The figure captions should be refined to clearly describe each major component.
+Questions:
+How does VeSX distinguish itself from approaches like Tree of Thought (which leverages branching and self-verification of reasoning steps), Reflexion (which incorporates self-reflection mechanisms), and various retrieval-augmented frameworks?
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

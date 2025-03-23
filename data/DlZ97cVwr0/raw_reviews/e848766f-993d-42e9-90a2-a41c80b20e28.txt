@@ -1,0 +1,25 @@
+Summary:
+This paper introduces a new benchmark of molecules for evaluating generative language models with a focus on recall. It aims to investigate the model's ability on tasks requiring distinct output generation, like detecting all vulnerabilities in code. Using organic molecule dataset, the study shows that model recall can be anticipated via perplexity on a validation set. Moreover, the authors use beam search decoding to reduce duplicates and a recall-aware loss function to improve performance, providing insights into molecular representation and model pretraining effects.
+
+Soundness: 2: fair
+Presentation: 1: poor
+Contribution: 2: fair
+Strengths:
+This paper presents a meaningful investigation into the recall of model generation, with a well-articulated and compelling motivation.
+
+Weaknesses:
+From section 3.1 onward, this paper becomes quite difficult to follow, largely due to the use of specialized terminology from fields like chemistry without providing sufficient foundational overviews or introductory explanations. This approach makes it challenging for readers to fully grasp the content and nuances of the work. For instance, important details and statistics regarding the dataset collected by the authors are not included, and terms like SELFIES are mentioned without any straightforward elaboration to help readers understand what SELFIES actually represents. This lack of accessible explanations hinders the reader’s ability to form a clear understanding of the paper’s specifics. I recommend that the authors incorporate diagrams or more detailed descriptions of key terminology to enhance clarity.
+2.In section 4.2, a new method for estimating recall is proposed. First, the statement "Given that evaluating recall provides a meaningful and interpretable measure of an approach’s ability to model data, estimating recall without needing to perform generations would be useful" lacks a convincing motivation for why recall estimation without actual generation is necessary. There is no clear justification for the need to use an alternative method to evaluate recall. Furthermore, using probability to estimate recall does not align with the standard definition of recall, which traditionally measures the proportion of correctly generated instances rather than a probabilistic expectation. Thus, it is both imprecise and misleading to label this metric as recall. For instance, in earlier sections (Table 2), the authors appear to use a conventional method for calculating recall; however, after introducing this new approach, they apply it in Table 4 but use the same metric name. This inconsistency undermines reliability and creates confusion regarding the validity of the reported recall values.
+
+3.In section 4.3, I don’t see a substantial difference between your proposed recall-oriented generation and the standard beam search.
+
+Mean aggregation is equivalent to the regular loss function" lack clarity—specifically, it is not defined what the “regular loss function” refers to. Furthermore, the section does not directly present the actual loss function or provide a detailed explanation. Instead, it relies solely on textual descriptions, which makes it difficult to understand the specifics of the proposed loss. Including the explicit mathematical form of the loss function along with a step-by-step explanation would significantly improve clarity and accessibility.
+5.In addition to the presentation issues mentioned above, the paper lacks a coherent structure throughout both the methods and experiments sections. The presentation feels fragmented, and critical details regarding the experimental setup, such as baseline configurations, are insufficiently described. To improve clarity, a major revision is needed to reorganize the paper, providing a more cohesive structure and a thorough explanation of the experimental settings.
+
+Questions:
+Please refer to the weakness part
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

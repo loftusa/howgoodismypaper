@@ -1,0 +1,31 @@
+Summary:
+VeSX is a framework for interactive web automation tasks using LLMs that focuses on improving sub-task feasibility, a common issue for planning based methods that initially break down tasks into multiple steps before execution. To improve sub-goal feasibility, VeSX introduces three components: sub-goal guided verification, which verifies either with the model itself or external methods if the sub-task is feasible. The second is a hierarchical self-correction method that takes place when verification fails during planning as well as during execution. Hierarchical self-correction uses reflection to correct verification errors, and replans if necessary. Lastly, VeSX uses an exemplar bank for in-context learning for both planning and execution. Unlike previous uses of in-context learning, the VeSX exemplar bank does not use full trajectories, instead sampling from existing trajectories to build the examples. For evaluation, VeSX uses 5 scenarios from the WebArena benchmark.
+
+Soundness: 3: good
+Presentation: 2: fair
+Contribution: 3: good
+Strengths:
+Identifies key weaknesses in current methods for web automation
+Method tries to account for different types of failures through the dual verification system and self-correction
+Notable observations as part of method:
+A) It is easier to verify then come up verification for different goals
+B) Having the LLM output expected results as part of reflection
+Exemplar bank: I think this is one of the strongest contributions since it is very different than existing work in particular using parts of trajectories instead of full trajectories.
+Weaknesses:
+Presentation:
+I am a bit confused about the overall workflow. It would be helpful to have it written in an algorithm.
+It would also be helpful to see more examples
+Extra Time and Cost:
+How much extra time and tokens does it take for this method compared to others (if available for other methods)? If these other methods also had access to more compute, they might also have higher performance.
+Original of exemplars: Are the exemplars produced from questions in the benchmark? Are those questions included in the final results? This could also lead to an unfair comparison.
+One stated advantage of the approach is that human guidance is not needed. Is any human guidance used to design the prompts for the different steps? Is the exemplar bank used as in-context examples for all of the different steps?
+Questions:
+In addition the ones listed in the weaknesses:
+
+How many total tasks are there for each scenario?
+Out of the 60 sampled tasks for each scenario, how many exemplars were produced?
+After re-planning is done or self-correction, does the process start from the beginning again? Is there a limit to the number of times self-correction or reflection is allowed? Is this the same as in other papers?
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

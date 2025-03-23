@@ -1,0 +1,28 @@
+Summary:
+In this paper, the authors propose an exact unlearning method for federated model training. The main idea behind this paper is to better initialize the global model and re-train the global model on the remaining clients in a federated way. The authors further propose two strategies for the global model initialization in federated unlearning, including using the first-round local models of remaining clients and using the first-round local models and the corresponding sub-FL models of the remaining clients. Experiments on several datasets show the proposed method can outperform a naive baseline.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+The federated unlearning studied in this paper is an important research problem.
+This paper is well-written and easy to follow.
+Weaknesses:
+The academic findings found in this paper are not novel. The main academic findings brought by this paper are that using the proposed initialization strategies (using some locally trained models) rather than random initialization can improve the efficiency of federated exact unlearning. However, it is straightforward that using some locally trained models can speed up the convergence of the federated exact unlearning.
+
+The proposed initialization algorithm, i.e., MMT, is not well-motivated. (1) In lines 241-253, the authors claim that we should capture the joint influence of multiple clients for better global model initialization. However, the authors do not give any clear definition of the client's joint influence. To the best of my knowledge, "client joint influence" is not common knowledge in the area of federated learning. (2) In lines 263-269, the authors claim that "If the number of models to aggregate is less, it implies that the initialization of the global model contains the most joint influence of clients". It is also difficult to understand this statement. If we only use a small part of local models for global model initialization, why can we better capture the client joint influence?
+
+The MMT method is inefficient in both computation and storage. In the proposed MMT method, the authors introduce a lot of sub-models to memorize the historical training state. However, this will introduce many extra computation costs. For example, if there exists 
+ clients, and we maintain an influence tree with 
+ levels (including the top level and the bottom level), the computation costs of the FL systems will increase 
+ times, which may be impractical in real-world applications.
+
+The experiments in this paper can be improved. (1) Only small-scale datasets are used for experiments, i.e., MNIST, FMNIST, and CIFAR. The authors should compare different methods on larger datasets to demonstrate the superiority of the proposed method. (2) Only small-scale models, i.e., two-layer MLPs and two-layer CNNs, are used for experiments. Can the proposed method be applied to large-scale models, especially for the LLMs? (3) The authors only compare a trivial baseline method, i.e. training from scratch. However, there are many SOTA federated unlearning methods, the authors should compare them in this paper.
+
+Questions:
+Refer to weakness.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes

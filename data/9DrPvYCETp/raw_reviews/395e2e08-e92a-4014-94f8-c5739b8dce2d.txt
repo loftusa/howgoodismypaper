@@ -1,0 +1,28 @@
+Summary:
+The paper proposes a global shared recurrent memory transformer (SRMT) mechanism for multiagent reinforcement learning to address the multiagent pathing finding problem. Specifically, SRMT uses self-attention to aggregate agent memory and observation history while utilizing cross-attention to aggregate the shared memory from other agents to help coordination. Results on a toy bottleneck navigation task and a set of maze environments from the POGEMA benchmark show that SRMT outperforms various baselines.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+The motivation for using a global shared memory to help coordination and the idea of using the transformer to implement it are clear.
+The background is clearly explained and the related works are well discussed.
+Weaknesses:
+It seems that a lot baselines are missing. For example, in the Bottleneck Task, only some basic memory mechanisms from single-agent RL are compared while more advanced memory mechanisms such as relational memory [1] and AMRL [2] from the single-agent RL domain are not compared.
+At the same time, although some works about MARL memory such as RATE and ATM are discussed in Section 2.2, they are not compared in the experiments.
+The ablation study to validate each component of the proposed SRMT is not given.
+There are some typos. In Line 36, “MAPF” is not defined.
+References
+
+[1] Adam Santoro, Ryan Faulkner, David Raposo, Jack Rae, Mike Chrzanowski, Théophane Weber, Daan Wierstra, Oriol Vinyals, Razvan Pascanu, and Timothy Lillicrap. Relational Recurrent Neural Networks. In Proceedings of the 32nd International Conference on Neural Information Processing Systems, 2018.
+
+[2] Jacob Beck, Kamil Ciosek, Sam Devlin, Sebastian Tschiatschek, Cheng Zhang, and Katja Hofmann. Amrl: Aggregated memory for reinforcement learning. In International Conference on Learning Representations, 2020.
+
+Questions:
+Could the authors give the number of network parameters of each method? As SRMT uses transformers and ResNet, it may obtain advantages by more network parameters.
+Could SRMT scale well with the number of agents? If the number of agents increases, will the training time become much longer?
+Why does MAMBA with discrete communication protocol outperform SRMT in some scenarios? Does it mean that the global shared memory is not always the best choice? If yes, how could we choose the right method for the multiagent path-finding problem?
+Flag For Ethics Review: No ethics review needed.
+Rating: 5: marginally below the acceptance threshold
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

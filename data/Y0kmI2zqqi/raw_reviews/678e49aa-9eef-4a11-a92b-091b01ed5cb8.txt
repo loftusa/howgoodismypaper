@@ -1,0 +1,33 @@
+Summary:
+The paper describes using aggregation of time-series classification model predictions across windows during training and inference a way to go beyond fixed-context length window processing and infinite context models recurrent neural networks. The aggregation method explored here is simple averaging. An additional calibration step is used after the model is trained.
+
+The method is applied to different EEG channels in order to learn to classify a channel as being in the seizure originating zone or not. Cross-subject and cross institution results show very promising performance compared to fixed-context length approach and infinite context models.
+
+Soundness: 3: good
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+Very clear presentation and well-fit for this type of time series classification problem. The calibration step after pooling during training is a thoughtful addition.
+
+Weaknesses:
+Main concern is the single domain/task used to test the method. While the single domain is very interesting, there is something different in the fact that the seizure periods are themselves randomly occurring throughout the time series. In other tasks, long-term dynamics of the time series may require extracting patterns through time rather than this which is more akin to multiple instance learning where the search is for any evidence of positive class.
+
+The lack of other tasks weakens the generality of the method, but I don't have the perfect case of variable length it is hard to say where there would
+
+Questions:
+In the main body, the discussion of what portion of the training or validation set is used for the calibration is missing.
+
+Line 797 "with respect to best accuracy score on the evaluation" . This doesn't seem like a valid hyper-parameter selection if this is done on test instead of validation. Also it should be noted that hyper-parameter is selected in terms of accuracy, even if F1 and AUC are reported.
+
+In Algorithm 1, the windows from the time series are sampled proportional to their length. It would seem that stratified sampling by label or group may be motivated in cases of imbalanced training data. This could be mentioned.
+
+Typos: 180 "by sampling with replacement," -> "by sampling without replacement,"
+
+268 "the the correct "
+
+388 "a advantage"
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 6: marginally above the acceptance threshold
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

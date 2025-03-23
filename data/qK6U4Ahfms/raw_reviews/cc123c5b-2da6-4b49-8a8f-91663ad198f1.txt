@@ -1,0 +1,38 @@
+Summary:
+The paper describes an approach where LLM agents are used to simulate individual behaviour in large (city-scale) simulations of people. The proposed platform uses LLM agents that can adapt their behaviour depending on context and memory. This is different to the classic agent based approach for this type of simulation where behaviours are static over time. The development of the platform is one of the main contributions of the work, and the development of a user-friendly web interface is another contribution highlighted by the authors. From a machine learning perspective, the proposed “group-and-distill” approach to reduce LLM usage is the main contribution of the work, essentially a clustering approach before prompting the LLM for each cluster (as opposed to prompting an LLM for each individual).
+
+Soundness: 1: poor
+Presentation: 2: fair
+Contribution: 1: poor
+Strengths:
+The use of a LLM for the purpose of larger scale population modelling appears to be novel, and the suggested group-and-distill approach enables this idea, with relatively low hardware resources. Overall, considerable effort appears to have gone into development of the system. The system could be an interesting resource for research in complex systems.
+
+Weaknesses:
+The paper has quite a broad focus, like an overall project report. For a venue like iclr, it would have been better to focus on the specific contributions in machine learning, and to provide more technical details rather than an overall description of architecture and usability aspects as the main contributions. In its current form, ICLR does not appear to be the right venue for the work as it is presented.
+
+The work lacks depths in aspects that I would see essential for any ML paper: for example the group-and-distill concept is introduced, but the paper is very sparse in detail of the specific algorithms. Similarly it would have been interesting to see what are the initial prompts and the optimised prompts, in contrast. Any details comparing to the original approach without group-and-distill / ablation would have been an improvement too.
+
+Moreover it didn’t become clear to me what LLM has been used or how was it trained, and how do LLM outputs influence agents’ behaviours.
+
+Finally, the paper mentioned at the beginning the explainability of ABM as an advantage over black box neural network approaches. with the lack of detail on how the actions are influenced by the LLM or how the LLM are trained or fine tuned, the proposed model has the same disadvantage as any other neural network model.
+
+Minor presentation issues:
+
+"Agent-based models (ABMs) were first introduced to urban studies in the seminal work of Thomas Schelling about 50 years ago Schelling (2006)"
+
+if the work referenced was from approx 50 years ago, Schelling 2006 is the wrong reference. I believe the correct year would be 1978.
+there are two kinds of citations, narrative (like the one in the sentence), and parenthetical (Schelling, 2006). It doesn't make sense to use narrative style when it doesn't fit into the sentence structure. In LaTeX with natbib, this is the difference between \citet and \citep. The referencing is an issue throughout the paper.
+Questions:
+While the approach and system are interesting, I don't see this paper as a good fit for ICLR, in its present form, and suggest it be rejected. Some of my questions:
+
+What LLM model is used in the simulation, and how was it trained?
+How do the prompts look before and after applying the group-and-distill approach?
+What is the output of the LLM, and how does it influence agent behaviour?
+To what extent is the group-and-distill technique generalisable beyond urban simulations?
+How does the platform maintain long-term consistency in agent behaviour, given the variability in LLM responses?
+What mechanisms are in place to manage or correct for inconsistencies in agent behaviour across prompts?
+Is there an evaluation of the platform’s accuracy in simulating real-world behaviours compared to traditional ABMs?
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

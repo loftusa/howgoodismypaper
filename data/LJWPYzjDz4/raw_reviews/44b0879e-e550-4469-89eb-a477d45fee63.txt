@@ -1,0 +1,26 @@
+Summary:
+This paper proposes an image compression enhancement framework for edge devices called Easz, which uses the ‘erase-and-squeeze’ technique to improve compression flexibility and efficiency.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+It seems reasonable to downsample the original image to reduce the coding complexity at the transmitter side.
+
+Weaknesses:
+Under the experimental conditions where GT images are available, relying on no-reference metrics to assess the reconstruction quality will result in an incomplete assessment and make it difficult to clearly demonstrate the advantages of the method in preserving image details. Reference metrics can provide more direct quantitative comparisons in the presence of GT, so the inclusion of metrics such as PSNR and SSIM in the paper will make the experimental results more convincing and comparable.
+
+The NN-based image compression models compared in this article all use autoregressive context modules, thus resulting in coding and decoding times that can be very long, and the authors need to compare them with parallel context modules (e.g. checkerboard [1])..
+
+Higher complexity occurs on the receiver side using transformer reconstruction, especially for HD images. The complexity calculation in Supplementary Material Section B seems to be wrong. If the patch size is 
+, then the dim should be 
+, so the complexity of the model is not reduced.
+
+[1] He, Dailan, et al. "Checkerboard context model for efficient learned image compression." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2021.
+
+Questions:
+JPEG is inherently non-differentiable, how can the presence of JPEG compression be taken into account in training?
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.
+Code Of Conduct: Yes

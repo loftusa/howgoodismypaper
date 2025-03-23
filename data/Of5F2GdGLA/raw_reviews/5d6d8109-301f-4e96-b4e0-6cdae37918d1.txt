@@ -1,0 +1,28 @@
+Summary:
+This paper presents VeSX, a framework for web automation that integrates verification, self-correction, and in-context learning mechanisms.
+
+Soundness: 2: fair
+Presentation: 3: good
+Contribution: 3: good
+Strengths:
+The exemplar bank's approach of breaking down trajectories into smaller, reusable components is innovative and practically valuable for reducing context length while maintaining effectiveness.
+The ablation studies are comprehensive and help validate the contribution of each component.
+The design of local reflection and global reflection are interesting.
+Weaknesses:
+The literature review on LLM-based agents appears incomplete, missing several relevant recent works
+About "subgoal-based verification," process supervision is a well-studied research direction[1]. This paper's key difference lies in the hierarchical verification mechanism. However， to prove the effectiveness of hierarchical verification，more comparison experiments and discussions should be made。
+Although the authors don't use ground-truth labels, their exemplar construction process still utilizes tasks from the target domain. While this doesn't constitute supervision in the traditional sense, it does provide the model with domain-specific information that zero-shot baselines may not have access to, potentially creating an unfair comparison if the baselines are purely zero-shot.
+References:
+
+[1] Lightman H, Kosaraju V, Burda Y, et al. Let's verify step by step[J]. arXiv preprint arXiv:2305.20050, 2023.
+
+Questions:
+See Weaknesses. Further:
+
+Could the authors clarify whether the 60 sampled tasks used for creating exemplars overlap with the test set? If so, how do they address potential data leakage concerns?
+How does the system handle cases where the verification phase produces false positives or false negatives? Is there any analysis of the verification accuracy?
+How scalable is the exemplar bank approach as the number of tasks and domains increases? Is there a strategy for managing the growing size of the exemplar bank?
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

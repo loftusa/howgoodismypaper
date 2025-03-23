@@ -1,0 +1,35 @@
+Summary:
+The paper presents VeSX, a framework designed to enhance web automation tasks by improving the subtask feasibility of Large Language Models (LLMs). It addresses the challenges of error-prone workflows by introducing three key components: (1) Subgoal-Guided Verification, which ensures that subtasks are completed correctly by generating subgoals during the planning phase and verifying the execution results against those subgoals, (2) Hierarchical Self-Correction, which adds layers of error correction during both the planning and execution phases. If mistakes occur, the model first reflects on its actions, and if needed, replans the task, (3) Exemplar Bank for In-Context Learning, which uses stored examples of previous tasks to help the model learn from experience and improve performance on future tasks.
+
+Soundness: 2: fair
+Presentation: 1: poor
+Contribution: 2: fair
+Strengths:
+Originality: The paper presents VeSX, a framework that introduces a combination of verification, self-correction, and in-context learning for web automation tasks. The approach is notable for its hierarchical self-correction mechanism, which allows the model to reflect on errors and replan, addressing potential common challenges.
+
+Quality: The idea proposed in this paper is straightforward and clear. The overall structure is clear, despite some minor confusion.
+
+Clarity: Key concepts such as subgoal-guided verification and hierarchical self-correction are explained straightforwardly, and the diagrams effectively support the explanations.
+
+Significance: VeSX addresses a common issue in web automation—handling subtask failures and error correction. Its ability to autonomously verify and correct errors while using in-context learning is a useful enhancement.
+
+Weaknesses:
+While the paper proposes an interesting framework for web automation, the technical contribution feels somewhat limited. The system is more focused on practical application rather than introducing a novel method or algorithm. Additionally, there is no follow-up evaluation of the entire system under real-world conditions. It would be beneficial to see both quantitative and qualitative analyses of VeSX in real-world usage scenarios to better understand its performance in practical settings. E.g., a statistical evaluation or user study focusing on whether this system truly works for real-world tasks would significantly strengthen the paper. A field study or feedback from real users would also provide practical insights into how the system performs in dynamic, unstructured environments.
+
+The concept of "self-correction" is promising, but the evaluation of this feature is not comprehensive enough. Although the paper includes an ablation study, a more detailed analysis of the self-correction mechanism is necessary to demonstrate its effectiveness. For example, breaking down how self-correction functions in different failure cases or assessing the time and resource costs associated with error correction would provide deeper insights into the feature’s utility.
+
+The paper does not address what happens if the system or specific components fail. While self-correction is included, there is no discussion of how the system handles scenarios where self-correction or verification mechanisms fail. For real-world applications, understanding the system’s resilience and fallback options is crucial. Including an analysis of fail-safe protocols would enhance the system’s reliability and robustness.
+
+Questions:
+How would the system perform in a real-world scenario with unstructured tasks and environments? Have you considered conducting a user study or statistical analysis to test its practical application and effectiveness?
+
+While you provide an ablation study, could you expand on the evaluation of the self-correction feature? How does it handle various failure cases, and what are the associated costs (in terms of time, resources, etc.) for error correction?
+
+Beyond its application focus, do you see any potential for extending the technical contributions of VeSX? For example, could the subgoal-guided verification or hierarchical self-correction be applied in other domains?
+
+PS: content under Section 2.1 Overview is missing.
+
+Flag For Ethics Review: No ethics review needed.
+Rating: 3: reject, not good enough
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

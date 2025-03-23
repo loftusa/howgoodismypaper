@@ -1,0 +1,24 @@
+Summary:
+This paper introduces a physics-transfer (PT) learning framework designed to bridge digital models of varying fidelities and complexities, effectively addressing the accuracy-performance trade-off in multiscale problem analysis. By leveraging PT learning, the model achieves reduced computational costs compared to traditional machine learning models, making it a more efficient solution for understanding complex, representative physical phenomena.
+
+Soundness: 2: fair
+Presentation: 2: fair
+Contribution: 2: fair
+Strengths:
+This model achieves lower computational costs than traditional ML models, with a method that is easy to understand.
+
+Weaknesses:
+No new models have been proposed.
+Why was CNN chosen over other state-of-the-art models?
+The comparison methods are insufficient.
+Appropriate statistical analysis is required.
+Questions:
+How is the credibility of the model evaluated?
+
+Flag For Ethics Review: No ethics review needed.
+Details Of Ethics Concerns:
+n/a
+
+Rating: 5: marginally below the acceptance threshold
+Confidence: 1: You are unable to assess this paper and have alerted the ACs to seek an opinion from different reviewers.
+Code Of Conduct: Yes
