@@ -1,0 +1,19 @@
+1 November 2023, 15:30 (modified: 1 November 2023, 15:30)
+Summary: The paper proposes SPE-Unlearn, a structure-aware parameter-efficient approach for machine unlearning in Transformer models. The method focuses on identifying influence-critical parameters in the heads and filters of Transformers using learnable masks. The authors derive the learning objective by considering both the efficiency and effectiveness of influence removal. SPE-Unlearn is integrated into second-order unlearning and tested in three scenarios: second-order unlearning, memory-free unlearning, and memory-aided unlearning. Extensive experiments across various Transformer models and datasets demonstrate the effectiveness and efficiency of the approach.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses an important problem in machine unlearning for large Transformer models by introducing a structure-aware approach that targets influence-critical parameters. The authors provide a comprehensive theoretical derivation of their masking approach and demonstrate its application in different unlearning scenarios. The extensive experimental evaluation across multiple models (BERT-base, DistilBERT, RoBERTa-large) and datasets shows consistent performance advantages in terms of balancing efficacy, fidelity, and computational efficiency.
+
+Weaknesses: While the paper presents a novel approach, some aspects could be improved. The derivation in Section 3.1 is dense and could benefit from clearer explanations of intuition behind the mathematical formulation. The evaluation, while extensive across models and datasets, focuses primarily on classification tasks, and it would be valuable to see performance on more diverse NLP tasks. The improvements over baseline SO are sometimes modest, which raises questions about the significance of the contribution. Additionally, the paper lacks analysis of the limitations of the approach or failure cases.
+
+Questions: 1. How does the approach perform on generative tasks or with decoder-only architectures?
+2. Have you evaluated the extent to which unlearning is permanent, especially after further fine-tuning?
+3. How does the performance vary with different sparsity levels for different model sizes? Is there a relationship between optimal sparsity and model size?
+4. Can you provide more intuition behind why filter-only updates are more effective than head-only updates?
+
+Flag For Ethics Review: No
+Rating: 6
+Confidence: 4
+Code Of Conduct: Yes

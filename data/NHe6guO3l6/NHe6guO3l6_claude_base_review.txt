@@ -1,0 +1,22 @@
+03 November 2023, 15:30 (modified: 03 November 2023, 15:30)
+Summary: This paper addresses the problem of federated unlearning, where a client's influence needs to be completely removed from an aggregated model in a federated learning setting. The authors propose two methods to ensure exact unlearning while improving post-unlearning performance: Bi-Models Training (BMT) and Multi-Models Training (MMT). BMT maintains a local model for each client trained only on their data, which can be aggregated after unlearning for better initialization. MMT leverages a hierarchical tree structure of sub-FL models to capture joint client influences. The authors prove that a binary influence tree constructed using Huffman coding minimizes their proposed influence degradation score. Extensive experiments on various datasets demonstrate that both methods outperform baseline approaches, with MMT showing the best performance.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper presents a novel approach to federated unlearning with rigorous theoretical analysis. The proposed BMT and MMT methods are well-motivated and address a practical problem in federated learning settings. The paper provides formal definitions and a theoretical guarantee for the optimality of binary influence trees using Huffman coding. The experimental evaluation is comprehensive, covering various datasets (MNIST, FashionMNIST, CIFAR-10, CIFAR-100), different models (including language models), and multiple practical scenarios (sequential unlearning, continual learning/unlearning). The authors analyze how different factors (data heterogeneity, branching factors, unlearning probabilities) affect performance.
+
+Weaknesses: The computational overhead of maintaining multiple models, especially for MMT, could be prohibitive for real-world applications with many clients, though the authors acknowledge this trade-off. The paper lacks a detailed comparison with certain recent federated unlearning techniques beyond the baselines mentioned. While the authors claim exact unlearning, a more rigorous verification of the exactness claim would strengthen the paper. The performance improvements, while consistent, are sometimes modest for the additional complexity introduced. The theoretical analysis could better connect to the practical implementation - for instance, how the IDS score translates to actual performance gains.
+
+Questions: How does the computational and memory overhead of MMT scale with the number of clients? Is there a practical upper limit to the number of clients where this approach remains feasible?
+
+Could you elaborate on how exactly the proposed methods ensure that unlearning is truly "exact" in the same sense as retraining from scratch?
+
+Have you considered hybrid approaches that might balance the performance benefits of MMT with the lower computational requirements of BMT?
+
+How would the methods perform in scenarios where clients have highly imbalanced data quantities or qualities?
+
+Flag For Ethics Review: 
+Rating: 6
+Confidence: 4
+Code Of Conduct: yes

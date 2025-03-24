@@ -1,0 +1,20 @@
+22 October 2023, 14:30 (modified: 22 October 2023, 14:30)
+Summary: This paper introduces BanglaGITI, a novel dataset for Bengali music genre classification consisting of 1410 audio files across 6 genres. The authors perform a comprehensive comparative analysis of various classification approaches: traditional machine learning methods using handcrafted features (MFCCs, ZCR, RMS, etc.), deep learning models utilizing Log-Mel spectrograms with pre-trained CNN architectures (DenseNet, ResNet, VGGNet), and ensemble models combining both approaches. The deep learning ensemble models achieved state-of-the-art performance with 96% accuracy and comparable precision, recall, and F1-scores. The paper's main contribution is the introduction of a dedicated Bengali music genre dataset and the thorough performance evaluation across various classification methodologies.
+
+Soundness: 3
+Presentation: 2
+Contribution: 3
+Strengths: The paper addresses a gap in music information retrieval for non-Western music, specifically focusing on Bengali music genre classification. The introduction of a new dataset (BanglaGITI) is valuable for the research community working on culturally diverse music classification. The comprehensive comparison between different classification approaches (ML, DL, and ensemble methods) provides useful insights into their relative performance on this specific task. The study achieved strong classification results, particularly with the deep learning ensemble approaches, demonstrating the effectiveness of the proposed methods for this task.
+
+Weaknesses: The paper lacks sufficient details about the dataset creation process, including how the audio was collected, the criteria for genre labeling, and considerations for class balance. There is limited discussion of the cultural and musical characteristics of Bengali music genres that would help contextualize the classification task. The experimental methodology section needs more clarity regarding implementation details, parameter settings, and evaluation protocols. The paper claims state-of-the-art results but doesn't adequately compare with existing work on similar tasks. The writing could be improved for clarity and conciseness, as there are some repetitive descriptions and technical terms that are not fully explained.
+
+Questions: 1. Could you provide more details about the dataset creation process, including how the audio files were collected, annotated, and validated for genre accuracy?
+2. What specific ensemble techniques were used to combine the ML and DL models, and how did you handle the different input representations required by each approach?
+3. How do the Bengali music genres differ acoustically, and how did these differences impact the feature selection and model design decisions?
+4. Did you perform any ablation studies to understand which features or model components contributed most to the classification performance?
+5. How does your work compare to existing music genre classification systems for other non-Western music traditions?
+
+Flag For Ethics Review: No
+Rating: 6
+Confidence: 3
+Code Of Conduct: Yes

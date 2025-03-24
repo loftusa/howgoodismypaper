@@ -1,0 +1,28 @@
+30 October 2023, 14:32 (modified: 30 October 2023, 14:32)
+Summary: This paper proposes Easz, a lightweight framework for enhancing image compression specifically for resource-constrained edge devices. The key innovation is an "erase-and-squeeze" technique that allows for flexible image size reduction through conditional uniform-based sampling, rather than traditional uniform downsampling. This is complemented by a lightweight transformer-based reconstruction method on the receiver side. Unlike traditional neural network-based compressors which have heavy encoder-decoder structures and inflexible compression levels, Easz offers near-zero computational demand at the edge while maintaining efficiency at the receiver. The authors demonstrate that Easz is compatible with existing compression algorithms and outperforms both traditional and neural-network-based compression techniques in adaptability, computational efficiency, and image quality.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: 1. The paper addresses a significant practical problem in edge computing for image compression, where the computational asymmetry between edge devices and servers needs to be considered.
+2. The conditional uniform-based sampler provides an interesting approach to flexible image size reduction that allows for different compression levels without model switching.
+3. The performance evaluation is comprehensive, comparing against multiple baselines (traditional and neural-network-based) across various metrics.
+4. The proposed method is demonstrated to be computationally efficient on edge devices, with minimal power consumption and memory footprint compared to existing neural compression methods.
+5. The approach is compatible with existing compression algorithms, enhancing their performance rather than replacing them.
+
+Weaknesses: 1. The theoretical justification for the conditional uniform-based sampler is somewhat limited, and it's not entirely clear why the constraints used (inter-row and intra-row) are optimal.
+2. While the authors claim Easz produces better quality reconstructions than super-resolution methods, the perceptual metrics used (Brisque, Pi, Tres) are not as widely accepted in the literature as PSNR and SSIM.
+3. The model size of 8.7MB may still be substantial for extremely resource-constrained edge devices, which isn't thoroughly discussed.
+4. Some implementation details are relegated to appendices, making it difficult to fully evaluate the approach without extensive back-and-forth.
+5. The paper doesn't discuss potential security implications of the proposed approach, especially since image tampering in transmission could be more impactful with this reconstruction method.
+
+Questions: 1. How sensitive is the performance of Easz to the choice of hyperparameters like patch size and erase ratio? Is there a way to automatically determine optimal values for specific image types or hardware configurations?
+2. The two-stage patchify process significantly reduces computational complexity, but how does this affect the ability to capture long-range dependencies in images?
+3. How does Easz perform on images with varying content complexity? Are there certain types of images where the approach performs particularly well or poorly?
+4. Could the authors elaborate on how the model might be optimized further for deployment on extremely constrained devices (e.g., microcontrollers)?
+5. Is there a theoretical upper bound on the compression ratio achievable with Easz while maintaining acceptable image quality?
+
+Flag For Ethics Review: No
+Rating: 6
+Confidence: 4
+Code Of Conduct: Yes

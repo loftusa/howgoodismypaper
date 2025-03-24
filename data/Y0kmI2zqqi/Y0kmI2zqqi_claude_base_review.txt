@@ -1,0 +1,27 @@
+23 October 2023, 15:45 (modified: 23 October 2023, 15:45)
+Summary: This paper introduces Stochastic Sparse Sampling (SSS), a framework for variable-length time series classification specifically designed for medical applications. SSS works by sparsely sampling fixed windows from variable-length signals, processing each window independently with a local model, then aggregating these local predictions into a global classification. The authors evaluate SSS on seizure onset zone (SOZ) localization using intracranial EEG data from multiple medical centers, demonstrating superior performance compared to state-of-the-art methods both for in-distribution and out-of-distribution scenarios. The framework also offers natural interpretability through visualization of local window predictions.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses a significant challenge in medical time series analysis - handling variable-length data without resorting to padding, truncation, or interpolation. The proposed framework has several noteworthy strengths:
+1. The method is conceptually simple yet effective, showing strong performance across multiple evaluation metrics.
+2. The empirical evaluation is thorough, testing on data from multiple medical centers and in challenging out-of-distribution scenarios.
+3. The approach naturally provides interpretable visualizations of which parts of the signal contribute most to the classification.
+4. The framework is backend-agnostic, allowing it to be combined with any fixed-window time series classification method.
+
+Weaknesses: Several aspects of the work could be improved:
+1. The theoretical foundation is somewhat limited. While the paper provides a proof regarding the validity of the aggregation function, deeper theoretical analysis of why SSS works better (especially in OOD settings) would strengthen the paper.
+2. The calibration methods are discussed but their impact is not thoroughly analyzed in the experiments section.
+3. The visualizations in Figures 2 and 3, though insightful, lack medical expert validation or interpretation - the paper doesn't confirm if the highlighted regions correspond to clinically relevant patterns.
+4. The paper doesn't explore potential sampling strategies beyond random uniform sampling, which could potentially improve performance.
+
+Questions: 1. How does the model performance change with different sampling strategies (e.g., stratified sampling based on signal characteristics, or adaptive sampling focusing on regions with high variance)?
+2. Have you evaluated whether the signals highlighted by SSS (as shown in Figures 2 and 3) correspond to clinically meaningful patterns according to medical experts?
+3. The paper uses fixed window sizes for sampling. Have you explored using multiple window sizes simultaneously to capture patterns at different time scales?
+4. Given the superior OOD performance, do you have any insights on why infinite-context methods generally perform better than finite-context methods in OOD scenarios?
+
+Flag For Ethics Review: 
+Rating: 6
+Confidence: 4
+Code Of Conduct: yes

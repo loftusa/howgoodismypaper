@@ -1,0 +1,15 @@
+10 November 2023, 14:30 (modified: 10 November 2023, 14:30)
+Summary: This paper introduces MathOdyssey, a new benchmark for evaluating mathematical problem-solving capabilities of Large Language Models (LLMs). The dataset consists of 387 mathematical problems spanning Olympiad-level, high school, and university-level mathematics, created by experts to avoid data contamination issues. The authors evaluate both open-source (e.g., Llama-3) and closed-source models (e.g., GPT series, Gemini) on this dataset. Results show that while models perform well on routine problems, they struggle with Olympiad-level challenges, with GPT-4 o1-preview achieving the highest overall performance at 65.12%. The study also reveals that open-source models are closing the gap with earlier versions of closed-source models but still lag behind the latest ones.
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses an important problem in AI research - evaluating mathematical reasoning capabilities of LLMs. The dataset's careful curation by mathematical experts is valuable for ensuring it tests genuine reasoning rather than memorization. The benchmark covers diverse subject areas and difficulty levels, providing a comprehensive assessment tool. The objective evaluation methodology enhances reproducibility, and making the dataset and evaluation code publicly available is commendable. The analysis comparing open-source and closed-source models provides useful insights into the current state of mathematical reasoning in LLMs.
+Weaknesses: The dataset, while valuable, is relatively small (387 problems) compared to some existing benchmarks. The paper could benefit from more detailed analysis of specific error patterns or reasoning failures exhibited by the models. The evaluation relies heavily on correctness without examining the quality of reasoning processes. While the authors mention using GPT-4 for evaluation, more details on validation of this evaluation approach would strengthen the methodology. The paper lacks comparison with specialized mathematical reasoning techniques beyond standard LLM approaches, which could provide additional context for the results.
+Questions: 1. How do you ensure that GPT-4's evaluation of other models' answers is fair and unbiased, especially when evaluating competing models? Was there any human validation of the automated scoring?
+2. Have you analyzed specific types of mathematical reasoning that models struggle with across different problem categories? Are there particular patterns of errors that could inform future research?
+3. Given that open-source models are approaching the performance of earlier closed-source models, what specific areas of mathematical reasoning show the greatest gap between open and closed-source systems?
+4. How might the benchmark be extended in the future to address a wider range of mathematical reasoning skills, particularly those requiring visual or multi-step reasoning?
+Flag For Ethics Review: 
+Rating: 8
+Confidence: 4
+Code Of Conduct: yes

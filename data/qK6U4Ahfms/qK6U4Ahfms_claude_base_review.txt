@@ -1,0 +1,20 @@
+28 October 2023, 09:45 (modified: 28 October 2023, 09:45)
+Summary: This paper introduces OpenCity, a platform for simulating urban activities using large language model (LLM) agents. The authors address the computational challenge of scaling up LLM agent simulations by proposing two main optimizations: (1) an LLM request scheduler that parallelizes requests through IO multiplexing, and (2) a "group-and-distill" prompt optimization strategy that clusters agents with similar attributes to reduce token usage. The authors demonstrate significant efficiency improvements, achieving a 600-fold acceleration in simulation time per agent, 70% reduction in LLM requests, and 50% reduction in token usage, enabling simulation of 10,000 agents in 1 hour. The platform is evaluated on six global cities and compared against real-world data, suggesting that LLM agents can effectively reproduce urban dynamics.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses a significant challenge in agent-based modeling with LLMs - the computational cost of scaling up simulations. The proposed optimizations (both system-level and prompt-level) are well motivated and clearly explained. The evaluation is comprehensive, covering both technical efficiency metrics and the quality of simulated behaviors compared to real-world data. The platform enables interdisciplinary applications, making LLM agent simulation more accessible to researchers from various backgrounds through a user-friendly web interface. The case study on experienced urban segregation demonstrates a valuable application that would be difficult with traditional rule-based models.
+
+Weaknesses: The paper lacks detailed discussion of limitations or failure cases of the proposed approach. While the efficiency gains are impressive, there is limited analysis of when the group-and-distill strategy might break down or introduce biases in agent behavior. The faithfulness experiments show that while the approach maintains reasonable fidelity compared to batch prompting, there is still a gap compared to raw prompting, especially with less capable models. The experimental section could benefit from more detailed ablation studies that isolate the contributions of each proposed optimization. Additionally, while the authors compare against EPR (rule-based) agents, comparison with other LLM agent optimization approaches would strengthen the evaluation.
+
+Questions: 1. How does the performance of the group-and-distill approach degrade as the diversity of agents increases? Is there a point where the clustering becomes ineffective?
+2. What is the computational overhead of the in-context prototype learning step, and how does it scale with the number of agents?
+3. How sensitive is the system to the choice of threshold T in the IPL algorithm?
+4. Could the authors elaborate on how they handle dynamic changes in agent similarity over time as their memories and experiences diverge?
+5. Does the approach introduce any biases in agent behavior compared to individual prompting?
+
+Flag For Ethics Review: 
+Rating: 8
+Confidence: 4
+Code Of Conduct: yes

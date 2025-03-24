@@ -1,0 +1,19 @@
+31 October 2023, 14:30 (modified: 31 October 2023, 14:30)
+Summary: This paper introduces a benchmark for evaluating the recall of language models, specifically in the domain of small organic molecules. The authors define several sets of molecules with varying complexity and fine-tune language models on subsets of these molecules. They show that perplexity on a validation set can predict recall without needing to perform generation, propose a beam search method to maximize recall by avoiding duplicates, and design a recall-aware loss function to improve recall for small language models. The paper provides valuable insights into evaluating and improving the recall capability of language models, which has been underexplored compared to precision.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses an important and underexplored aspect of language model evaluation - recall rather than just precision. The molecular domain provides a well-defined test bed where equivalence classes can be clearly identified, making it possible to rigorously evaluate recall. The paper makes several contributions, including: (1) a novel benchmark for evaluating recall using molecular datasets of varying complexity; (2) a method to predict recall without performing generation; (3) a beam search approach that improves recall; and (4) analysis of how different molecular representations and model architectures affect recall performance. The empirical evaluation is comprehensive, exploring multiple models, datasets, and generation strategies.
+
+Weaknesses: The paper's scope is somewhat limited to the molecular domain, and it's not entirely clear how the findings would transfer to other domains like code generation or security applications mentioned in the introduction. The recall-aware loss function proposed only shows improvements for very small models (800K parameters) but not for larger ones, limiting its practical utility. The experiments on SMILES vs. SELFIES representations don't provide a clear recommendation or insight beyond showing that different representations work better in different contexts. The paper could benefit from a clearer discussion of the limitations of the proposed methods and potential directions for future work to improve recall in more general settings.
+
+Questions: 1. How might the method for predicting recall based on perplexity extend to domains where equivalence classes are not as clearly defined as in molecules?
+2. For the beam search method that improves recall, how does the computational cost scale with the desired number of generations? Is it practical for real-world applications?
+3. Could you elaborate on why the recall-aware loss function only helps smaller models? Is there a theoretical reason why larger models wouldn't benefit from this approach?
+4. Have you considered how these findings might change with larger language models (e.g., several billion parameters) that may have very different memorization properties?
+
+Flag For Ethics Review: 
+Rating: 6
+Confidence: 4
+Code Of Conduct: yes

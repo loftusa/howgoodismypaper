@@ -1,0 +1,19 @@
+12 October 2023, 15:30 (modified: 12 October 2023, 15:30)
+Summary: This paper introduces Shared Recurrent Memory Transformer (SRMT), which extends memory transformers to multi-agent settings by pooling and globally broadcasting individual working memories. SRMT is evaluated on partially observable multi-agent pathfinding problems, specifically a Bottleneck navigation task requiring agents to navigate through narrow corridors and on the POGEMA benchmark. The authors demonstrate that SRMT outperforms various reinforcement learning baselines, particularly with sparse rewards, and generalizes to longer corridors than those seen during training. On POGEMA maps, SRMT is competitive with recent MARL, hybrid, and planning-based algorithms.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses an important problem in multi-agent reinforcement learning - enabling implicit coordination without explicit communication. The proposed SRMT approach is a novel and elegant extension of memory transformers to multi-agent settings. The empirical evaluation is thorough, with multiple environments and comparison against a variety of baselines. The approach shows particularly good performance in the Bottleneck task, demonstrating strong generalization capabilities to corridor lengths much longer than those seen during training. The analysis of memory representations and their relationship to agent spatial distances provides useful insights into how the model works.
+
+Weaknesses: The theoretical grounding for why sharing memory should help with coordination is somewhat limited. While the global workspace theory is mentioned, the connection to the proposed method could be developed further. The main toy task (Bottleneck) is relatively simple, and while POGEMA provides more complex environments, it would be interesting to see performance on tasks requiring more complex coordination patterns. The paper would benefit from ablation studies exploring different ways of sharing memory or different memory architectures. While the paper shows that SRMT is competitive with other approaches on POGEMA benchmarks, it doesn't consistently outperform them across all environments and metrics, making the advantages of the approach less clear-cut than in the Bottleneck task.
+
+Questions: 1. Have the authors considered alternative memory sharing mechanisms beyond the simple pooling and broadcasting approach? How might different memory sharing architectures affect performance?
+2. How does computational complexity scale with the number of agents? Is there a limit to how many agents the approach can handle effectively?
+3. How sensitive is the method to the initialization of memory states? The results suggest this is important (Fig. 4), but more analysis would be valuable.
+4. Could the approach work in heterogeneous agent settings where agents have different capabilities or goals?
+
+Flag For Ethics Review: No
+Rating: 6
+Confidence: 4
+Code Of Conduct: Yes

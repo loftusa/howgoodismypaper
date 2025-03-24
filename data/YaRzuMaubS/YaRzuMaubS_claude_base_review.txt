@@ -1,0 +1,16 @@
+01 March 2024, 14:30 (modified: 01 March 2024, 14:30)
+Summary: This paper proposes a formal definition of deception within the framework of rational decision making in partially observed Markov decision processes (POMDPs). The authors introduce a regret-based theory where deception can be quantified in terms of the actor's beliefs, actions, and utility. The framework allows for measuring both belief-based deception (misleading someone's understanding) and utility-based deception (causing suboptimal outcomes). The authors evaluate their definition through human studies across three scenarios (housing negotiations, nutritional consultation, and casual conversation) and find that their combined regret metric correlates with human judgments of deception. They also build a dialogue system to test real-time interactions and analyze deception in LLM-generated negotiation dialogues.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses an important topic given the growing capabilities of language models and interactive AI systems. The formalization of deception using regret theory provides a quantifiable approach that can be implemented in real systems. The authors conduct thorough empirical evaluations including human studies to validate their definition against human intuition. The framework is flexible enough to accommodate different notions of deception by defining appropriate reward functions. The paper demonstrates practical applications of the framework in both detecting deception and potentially in creating less deceptive systems.
+
+Weaknesses: The empirical correlations between the framework's deception ratings and human judgment, while positive, are moderately strong at best (0.67 for belief regret in the housing scenario), suggesting there are still aspects of human perception of deception not captured by the model. The paper assumes access to ground truth states and listener reward functions, which may be difficult to obtain in real-world applications. The framework may misclassify incompetence as deception, as acknowledged in the limitations section. The mathematical formalism, while thorough, can be difficult to follow at times, and some details about implementation choices are relegated to appendices.
+
+Questions: How would the framework handle cases where the speaker has incomplete knowledge about the world state? Could the framework be extended to account for multiple listeners with different belief systems, or speakers with different degrees of knowledge/uncertainty? Would incorporating intention more explicitly into the framework (distinguishing between intended and unintended deception) improve alignment with human judgments? How computationally scalable is this approach for real-time deception detection in complex dialogues?
+
+Flag For Ethics Review: 
+Rating: 6
+Confidence: 4
+Code Of Conduct: yes

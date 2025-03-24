@@ -1,0 +1,26 @@
+10 November 2023, 14:30 (modified: 10 November 2023, 14:30)
+Summary: This paper proposes DYNCL, a self-supervised contrastive learning framework for system identification under non-linear observation models. By building on contrastive learning literature, the authors show that their approach can effectively identify linear, switching linear, and non-linear latent dynamics from time-series data. The paper provides strong theoretical guarantees, showing that DYNCL can recover latent dynamics up to affine transformation, and introduces a practical differentiable parameterization (∇-SLDS) for modeling piecewise linear or non-linear dynamics. The authors validate their theoretical claims through extensive experiments on various dynamical systems.
+
+Soundness: 4
+Presentation: 3
+Contribution: 4
+Strengths: 1. The paper provides strong theoretical foundations, with clear proofs demonstrating when and how contrastive learning can perform system identification. These theoretical results enhance our understanding of why self-supervised learning works in practice.
+2. The proposed ∇-SLDS model is a novel and practical approach to parameterizing switching linear dynamics, which allows for approximation of non-linear dynamics.
+3. The empirical evaluation is thorough, testing the method on various dynamical systems including linear, switching linear, and non-linear (Lorenz) systems, with ablation studies that solidify the claims.
+4. The work makes a concrete connection between self-supervised representation learning and dynamics identification, which has significant implications for both fields.
+5. The application to real-world neural data shows practical utility beyond synthetic examples.
+
+Weaknesses: 1. The presentation could be improved; the paper is quite dense with technical details that sometimes make it difficult to follow the main ideas. Key intuitions behind the theoretical results could be better explained.
+2. While the ∇-SLDS model shows good performance on the Lorenz system, it seems to primarily succeed at latent space identification rather than perfectly capturing the non-linear dynamics (as noted in section 6.2).
+3. The paper requires significant computational resources (120 days of A100 compute), which might limit reproducibility for some researchers.
+4. The extension to non-injective mixing functions requires substantial additional time steps for effective identification, which could be a limitation in practical scenarios with limited data.
+
+Questions: 1. How would DYNCL perform on systems with high-dimensional latent spaces? The experiments seem to focus on relatively low-dimensional systems (3D-6D).
+2. Could the authors clarify the relationship between the number of matrices in the ∇-SLDS model and the approximation accuracy for non-linear dynamics? Is there a principled way to determine the optimal number?
+3. How does the method compare to other system identification approaches like Koopman operators or SINDy when the true dynamics are known to be of a specific form?
+4. For the real-world neural data example, what additional insights does the dynamics model provide beyond standard contrastive learning approaches? Are the identified dynamics interpretable?
+
+Flag For Ethics Review: No
+Rating: 8
+Confidence: 5
+Code Of Conduct: Yes

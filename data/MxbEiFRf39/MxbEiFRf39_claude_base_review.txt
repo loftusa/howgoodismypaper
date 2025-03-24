@@ -1,0 +1,18 @@
+27 November 2024, 15:30 (modified: 27 November 2024, 15:30)
+Summary: This paper introduces NNsight and NDIF, two complementary technologies designed to enhance scientific research on large neural networks. NNsight extends PyTorch to enable deferred remote execution via an "intervention graph" architecture that decouples experiment design from model runtime. NDIF is a scalable inference service that executes NNsight requests, allowing multiple users to share GPU resources and pretrained models. The authors quantitatively demonstrate a growing gap in research on large-scale AI internals, show how their framework addresses this gap, and present benchmarks comparing their approach to alternatives like high-performance computing and Petals.
+
+Soundness: 3
+Presentation: 3
+Contribution: 4
+Strengths: The paper addresses a critical need in AI research: enabling investigators to study the internals of large neural networks without requiring prohibitive computational resources. The intervention graph architecture is well-motivated and elegantly separates experiment design from execution concerns. The framework provides an expressive API that maintains compatibility with PyTorch while adding powerful new capabilities. The performance evaluations against alternative approaches (HPC and Petals) are compelling, particularly demonstrating how NDIF provides significant advantages for models with more than 3 billion parameters. The survey of the research landscape effectively illustrates the growing gap between available model capabilities and what researchers are typically able to study.
+
+Weaknesses: The technical description of the intervention graph architecture could be more precise, particularly in explaining how cycles are avoided during interleaving and how safe co-tenancy is guaranteed. While the paper mentions a "server-side whitelist of permitted operations," there is limited discussion of what security challenges exist and how they are addressed. The approach seems to assume a trusted user base rather than addressing potential adversarial usage. The evaluation section is somewhat limited, focusing primarily on runtime performance without evaluating whether the system successfully enables new types of research that were previously infeasible.
+
+Questions: 1. How does the system handle the case where multiple users request conflicting interventions on the same model? Does NDIF maintain separate model instances per user or is there a mechanism to safely interleave different users' interventions?
+2. What are the limitations of expressiveness in the intervention graph architecture? Are there certain types of model manipulations that cannot be represented?
+3. The paper mentions that code and documentation will be made available open-source - is there a timeline for this release, and will there be a public instance of NDIF available for researchers to use?
+
+Flag For Ethics Review: 
+Rating: 8
+Confidence: 4
+Code Of Conduct: yes

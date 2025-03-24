@@ -1,0 +1,19 @@
+24 November 2023, 14:30 (modified: 24 November 2023, 14:30)
+Summary: This paper investigates the discrepancy between theoretical predictions and practical observations regarding common randomness in lossy compression with realism constraints. Theoretical studies suggest that common randomness between compressor and decompressor is beneficial, yet state-of-the-art algorithms don't utilize it. The authors resolve this contradiction by introducing a novel realism constraint based on "algorithmic realism," where reconstructions must satisfy a universal critic that inspects individual images or small batches. They prove that under this constraint, optimal performance can be achieved without common randomness when batch sizes are reasonably small, which aligns with practical settings. Conversely, they show common randomness becomes beneficial only for impractically large batch sizes.
+
+Soundness: 3
+Presentation: 3
+Contribution: 3
+Strengths: The paper addresses an interesting theoretical question about the disconnect between theory and practice in lossy compression with perceptual quality constraints. The authors introduce a novel and well-motivated formalism for the rate-distortion-perception tradeoff that incorporates algorithmic realism. The mathematical formulation and proofs are rigorous. The main results offer valuable insights into why common randomness is not observed in practical compression systems despite theoretical predictions suggesting its benefits. The connection to algorithmic information theory provides a fresh perspective on realism constraints.
+
+Weaknesses: The technical density of the paper makes it challenging to follow without specialized background knowledge in algorithmic information theory. While the authors highlight the practical relevance of their theoretical findings, there is no empirical validation or experimental component to support their claims. The paper could benefit from more intuitive explanations or concrete examples to help readers understand the practical implications of the theoretical results. Some of the notation and terminology is introduced without sufficient explanation, making the paper less accessible.
+
+Questions: 1. Could you provide a concrete example that illustrates how your algorithmic realism constraint differs from traditional distribution matching constraints in practice?
+2. How might your theoretical findings inform the design of future compression algorithms? Are there any practical guidelines that follow from your results?
+3. Have you considered any specific approaches to quantify the "batch size" in existing realism metrics like FID or LPIPS?
+4. Could your framework be extended to other domains beyond image compression, such as audio or video compression with perceptual constraints?
+
+Flag For Ethics Review: 
+Rating: 6
+Confidence: 3
+Code Of Conduct: yes

@@ -1,0 +1,27 @@
+23 October 2023, 14:30 (modified: 23 October 2023, 14:30)
+Summary: This paper proposes UnoLoRA and UnoLoRA⋆, parameter-efficient approaches for multi-task learning using a single shared LoRA adapter across all tasks. While existing methods typically use separate task-specific LoRA adaptations, the authors demonstrate that using a single shared adapter module can effectively capture both task-specific and task-agnostic knowledge. UnoLoRA⋆ enhances this approach with a hypernetwork that generates task-specific embeddings to modulate the shared LoRA module. The methods are evaluated on the GLUE benchmark, demonstrating competitive performance with only 0.05% trainable parameters per task. The authors also analyze how the A and B matrices in their shared LoRA adapter naturally develop complementary roles, with A matrices capturing generalizable features while B matrices specialize in task-specific representations.
+
+Soundness: 3
+Presentation: 2
+Contribution: 2
+Strengths: - The idea of using a single shared LoRA module for multi-task learning is intuitive and the empirical analysis provides interesting insights into why this approach works.
+- The paper demonstrates good parameter efficiency, using only 0.05% trainable parameters per task while maintaining competitive performance.
+- The analysis of how A and B matrices in LoRA develop complementary roles in multi-task learning provides useful insights that could guide future work in parameter-efficient fine-tuning.
+- The inclusion of various metrics (effective rank, Frobenius norm, singular values) to analyze the properties of LoRA matrices offers a comprehensive view of how the model functions.
+
+Weaknesses: - The experimental validation is limited to the GLUE benchmark. While GLUE is a standard benchmark, evaluating on additional multi-task datasets would strengthen the claims.
+- The performance comparison shows that HyperFormer++ achieves better average results (86.48% vs 84.95% for UnoLoRA⋆). The paper emphasizes parameter efficiency, but the performance gap may be significant for some applications.
+- The paper lacks sufficient ablation studies. For example, it would be helpful to see how different hyperparameters (like LoRA rank or temperature in sampling) affect performance.
+- There is limited discussion on potential negative transfer between tasks. Since a single shared module is used, this is an important consideration for multi-task learning.
+- The presentation could be improved with clearer figures (some are difficult to interpret) and better organization of the experimental results.
+
+Questions: 1. Have you explored how UnoLoRA performs as the number of tasks increases? Is there a point where the single shared adapter becomes saturated and performance degrades?
+2. How does UnoLoRA compare with task-specific LoRA adapters when fine-tuning on a new task after initial multi-task training? Does the shared knowledge transfer well to new tasks?
+3. You mention that A matrices capture generalizable features and B matrices capture task-specific features. Have you explored leveraging this insight further, for example by using different ranks for A and B?
+4. How robust is UnoLoRA to task imbalance? If one task has significantly more data than others, does it dominate the shared LoRA module?
+5. Have you experimented with other architectures beyond T5, particularly decoder-only models that are common in current LLMs?
+
+Flag For Ethics Review: No
+Rating: 6
+Confidence: 4
+Code Of Conduct: Yes
